@@ -1,8 +1,36 @@
 aid: paystand
 name: PayStand
-description: PayStand is a company surfaced as a portfolio company of battery-ventures and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Paystand is a blockchain-enabled B2B payments and receivables automation
+  platform that lets businesses send, receive, and reconcile payments with
+  zero-fee bank-to-bank (ACH/EFT) transfers, card acceptance, and a
+  Bitcoin-anchored "Assurety" certified audit trail. The Paystand Developer API
+  (v3) exposes payments, refunds, disputes, payers, customer banks, accounts and
+  balances, scheduled payments, transfers, withdrawals (including auto-withdrawal
+  settings), a Checkout / Billing Portal embed surface, an Events resource, and
+  the Assurety blockchain notarization APIs (assurors, chains, contracts,
+  records, schemas, wallets). It integrates with major ERPs and e-commerce
+  platforms (Magento, WooCommerce, BigCommerce) and is used to automate accounts
+  receivable and payable for mid-market and enterprise finance teams.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.paystand.com/hubfs/paystand-logo.png
 url: https://raw.githubusercontent.com/api-evangelist/paystand/refs/heads/main/apis.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,12 +39,96 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Payments
+- B2B Payments
+- Accounts Receivable
+- Accounts Payable
+- Fintech
+- Blockchain
+- ACH
+- Billing
+- Checkout
+apis:
+- name: Paystand Developer API
+  description: >-
+    Paystand v3 REST API for B2B payments: create and manage payments, refunds,
+    disputes, payers, customer banks, accounts, balances, scheduled payments,
+    transfers and withdrawals, plus the Assurety blockchain notarization surface
+    and Checkout / Billing Portal embed.
+  humanURL: https://developers.paystand.com/reference
+  baseURL: https://api.paystand.com/v3
+  tags:
+  - Payments
+  - B2B Payments
+  - ACH
+  - Blockchain
+  properties:
+  - type: Authentication
+    url: authentication/paystand-authentication.yml
+  - type: OAuthScopes
+    url: scopes/paystand-scopes.yml
+  - type: ErrorCatalog
+    url: errors/paystand-problem-types.yml
+  - type: DeclineCodes
+    url: errors/paystand-decline-codes.yml
+  - type: Conventions
+    url: conventions/paystand-conventions.yml
+  - type: DataModel
+    url: data-model/paystand-data-model.yml
+  - type: Sandbox
+    url: sandbox/paystand-sandbox.yml
+  - type: MCPServer
+    url: mcp/paystand-mcp.yml
+  - type: Lifecycle
+    url: lifecycle/paystand-lifecycle.yml
+  - type: Conformance
+    url: conformance/paystand-conformance.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DomainSecurity
+  url: security/paystand-domain-security.yml
+- type: Website
+  url: https://www.paystand.com
+- type: DeveloperPortal
+  url: https://developers.paystand.com
+- type: Documentation
+  url: https://developers.paystand.com/docs/introduction
+- type: APIReference
+  url: https://developers.paystand.com/reference
+- type: GettingStarted
+  url: https://developers.paystand.com/reference/getting-started
+- type: Support
+  url: https://support.paystand.com/hc/en-us
+- type: Blog
+  url: https://www.paystand.com/blog
+- type: GitHubOrganization
+  url: https://github.com/paystand
+- type: Pricing
+  url: https://www.paystand.com/pricing
+- type: SignUp
+  url: https://dashboard.paystand.com/v2/signin
+- type: TermsOfService
+  url: https://www.paystand.com/terms-of-service
+- type: PrivacyPolicy
+  url: https://privacy.cptn.co/privacy-policy/9e569c48-09ec-4470-9690-5f41a96372a6
+- type: StatusPage
+  url: https://status.paystand.com
+- type: TrustCenter
+  url: https://trust.paystand.com
+- type: LLMsTxt
+  url: llms/paystand-llms.txt
+- type: WellKnown
+  url: well-known/paystand-well-known.yml
+- type: Packages
+  url: packages/paystand-packages.yml
+- type: SDKs
+  url: packages/paystand-packages.yml
+- type: Components
+  url: components/paystand-components.yml

@@ -1,0 +1,64 @@
+generated: '2026-07-20'
+method: searched
+source: https://developers.paystand.com/reference/test-cards
+docs: https://developers.paystand.com/reference/testing-the-api
+notes: >-
+  Values captured verbatim from Paystand's "Testing" reference. Use only in the
+  test environment. Access to test credentials is provisioned by Paystand
+  support alongside API access.
+test_cards:
+- number: '4000000000000077'
+  outcome: Charge succeeds; funds added directly to available balance.
+- number: '4242424242424242'
+  outcome: Charge will succeed.
+- number: '4000000000000002'
+  outcome: Charge declined - card declined.
+- number: '4000000000000069'
+  outcome: Charge declined - expired card.
+- number: '4000000000000127'
+  outcome: Charge declined - incorrect cvc.
+- number: '4000000000000259'
+  outcome: Charge succeeds and is later disputed as fraudulent.
+test_banks:
+- account_number: '000123456789'
+  routing_number: '110000000'
+  note: US ACH - status transitions posted then paid (USD payments).
+- account_number: '000123456789'
+  routing_number: 11000-000
+  note: Canadian EFT - status transitions posted then paid (CAD payments).
+micro_deposit_verification:
+  successful_amounts: ['32', '45']
+  failed_amounts: any amounts other than ['32','45'] (e.g. ['01','99'])
+  detail: >-
+    In the test environment, verify a bank by sending drop amounts to the verify
+    endpoint. Amounts ["32","45"] verify successfully; any others fail.
+test_bank_logins:
+- username: paystand_test
+  password: paystand_good
+  bank_name: Wells Fargo
+  bank_key: wells
+  mfa_question: You say tomato, I say...?
+  mfa_answer: tomato
+- username: paystand_test
+  password: paystand_good
+  bank_name: Bank of America
+  bank_key: bofa
+  mfa_question: You say tomato, I say...?
+  mfa_answer: tomato
+- username: paystand_test
+  password: paystand_good
+  bank_name: Chase
+  bank_key: chase
+  mfa_question: You say tomato, I say...?
+  mfa_answer: tomato
+- username: paystand_simple
+  password: paystand_good
+  bank_name: All Banks
+  bank_key: wells
+  mfa: none
+mfa_answers:
+  "You say tomato, I say...?":
+    tomato: succeeds
+    again: valid response that returns another question-type MFA
+  "What is the name on the bank account?":
+    paystand: succeeds

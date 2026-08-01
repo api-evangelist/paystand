@@ -1,0 +1,79 @@
+generated: '2026-07-20'
+method: derived
+source: https://developers.paystand.com/llms.txt
+docs: https://developers.paystand.com/reference
+notes: >-
+  Entity graph derived from Paystand's documented v3 resource reference and the
+  id-reference fields called out in the object docs (e.g. create-payment
+  accepts payerId, bankId, cardId, tokenId, accountKey). Paystand publishes no
+  machine-readable OpenAPI, so relationships are read from the prose object
+  reference, not a spec.
+entities:
+- name: account
+  key: accountKey
+  has_many: [balance, payment, withdrawal]
+- name: balance
+  belongs_to: [account]
+- name: bank
+  description: Customer bank; must be verified before use for withdrawals/payments.
+  belongs_to: [account]
+- name: payer
+  description: The party making a payment; owns payer banks, cards and tokens.
+  has_many: [payerBank, card, token, payment]
+- name: payerBank
+  belongs_to: [payer]
+- name: card
+  belongs_to: [payer]
+- name: token
+  belongs_to: [payer]
+- name: payment
+  belongs_to: [payer, account]
+  references: {bank: bankId, card: cardId, token: tokenId, account: accountKey}
+  has_many: [refund, dispute]
+  has_one: [assurety]
+- name: scheduledPayment
+  references: {payer: payerId, bank: bankId, card: cardId, token: tokenId}
+- name: refund
+  belongs_to: [payment]
+- name: dispute
+  belongs_to: [payment]
+- name: withdrawal
+  belongs_to: [account]
+  references: {bank: bankId, account: accountKey}
+  has_one: [transferReport]
+- name: transfer
+  belongs_to: [withdrawal]
+- name: transferReport
+  belongs_to: [transfer]
+  has_many: [reportEntry]
+- name: event
+  description: Retrievable API event object.
+- name: assuretyRecord
+  description: Blockchain-notarized record (Assurety).
+  belongs_to: [assuretySchema]
+  references: {chain: assuretyChain, contract: assuretyContract, wallet: assuretyWallet}
+- name: assuretyChain
+- name: assuretyContract
+- name: assuretySchema
+- name: assuretyWallet
+- name: assuror
+  has_many: [assuretyRecord]
+relationships:
+- {from: balance, to: account, kind: belongs_to, via: accountKey}
+- {from: bank, to: account, kind: belongs_to, via: accountKey}
+- {from: payment, to: payer, kind: belongs_to, via: payerId}
+- {from: payment, to: bank, kind: has_one, via: bankId}
+- {from: payment, to: card, kind: has_one, via: cardId}
+- {from: payment, to: token, kind: has_one, via: tokenId}
+- {from: payment, to: account, kind: belongs_to, via: accountKey}
+- {from: refund, to: payment, kind: belongs_to, via: paymentId}
+- {from: dispute, to: payment, kind: belongs_to, via: paymentId}
+- {from: withdrawal, to: bank, kind: has_one, via: bankId}
+- {from: withdrawal, to: account, kind: belongs_to, via: accountKey}
+- {from: transfer, to: withdrawal, kind: belongs_to, via: withdrawalId}
+- {from: transferReport, to: transfer, kind: belongs_to, via: transferId}
+- {from: payerBank, to: payer, kind: belongs_to, via: payerId}
+- {from: card, to: payer, kind: belongs_to, via: payerId}
+- {from: token, to: payer, kind: belongs_to, via: payerId}
+- {from: assuretyRecord, to: assuretySchema, kind: belongs_to, via: schemaId}
+- {from: assuretyRecord, to: assuror, kind: belongs_to, via: assurorId}

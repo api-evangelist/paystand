@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: searched
+source: https://developers.paystand.com/reference/checkout-introduction
+docs: https://developers.paystand.com/reference/getting-started-checkout
+notes: >-
+  Paystand ships client-side / embeddable checkout surfaces (distinct from the
+  server-side integration packages). Captured from the Checkout section of the
+  developer reference.
+families:
+- name: Billing Portal
+  kind: hosted-checkout
+  description: >-
+    Loads a prepopulated checkout from a simple URL; the hosted way to collect a
+    payment without embedding UI.
+  docs: https://developers.paystand.com/reference/portal-introduction
+- name: Checkout Elements
+  kind: embeddable-web-component
+  description: >-
+    Embeddable checkout elements/buttons configured via HTML attributes;
+    supports autoloading and button examples for on-page payment collection.
+  docs: https://developers.paystand.com/reference/checkout-elements
+  loaders:
+  - name: Paystand Checkout JS
+    docs: https://developers.paystand.com/reference/checkout-autoloading-example
+attributes_reference: https://developers.paystand.com/reference/checkout-attributes

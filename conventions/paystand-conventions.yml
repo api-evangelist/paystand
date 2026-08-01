@@ -1,0 +1,59 @@
+generated: '2026-07-20'
+method: searched
+source: https://developers.paystand.com/reference/headers
+docs: https://developers.paystand.com/reference/headers
+authentication:
+  style: oauth2-bearer + customer/publishable header
+  detail: >-
+    Bearer access token (Authorization header) + X-CUSTOMER-ID for authenticated
+    calls; X-PUBLISHABLE-KEY for public/checkout calls. See
+    authentication/paystand-authentication.yml.
+transport:
+  scheme: https
+  tls: TLS 1.2 or higher required
+  base_path: /v3
+  base_url: https://api.paystand.com/v3
+  content_type: application/json
+  accept: application/json
+pagination:
+  style: offset
+  params: [limit, offset]
+  detail: >-
+    List endpoints (payments, refunds, disputes, transfers, withdrawals) return
+    results in sorted order, most recent first, with pagination via the limit
+    and offset query parameters.
+  source: https://developers.paystand.com/reference/get-all-payments
+idempotency:
+  supported: false
+  detail: >-
+    Paystand does not document an idempotency-key header or parameter in its v3
+    API reference. Safe retries are not covered by a published idempotency
+    contract.
+versioning:
+  scheme: uri-path
+  current: v3
+  detail: The base URL for all APIs is "/v3".
+error_envelope:
+  shape: custom
+  root: error
+  fields: [name, status, type, description, details, ref]
+  detail: >-
+    Errors are wrapped in a root "error" object with an HTTP status code name,
+    numeric status, error type, human description, a unique reference id (ref),
+    and an optional nested details object (code, detailCode, description,
+    parameter, value, explanation). Not RFC 9457 problem+json.
+  source: https://developers.paystand.com/reference/error-resource
+metadata:
+  supported: true
+  field: meta
+  detail: >-
+    Most resources accept a meta object to attach arbitrary key/values and link
+    the resource to an external system.
+  source: https://developers.paystand.com/reference/meta
+rate_limit_signal:
+  documented: false
+cross_links:
+  errors: errors/paystand-problem-types.yml
+  decline_codes: errors/paystand-decline-codes.yml
+  lifecycle: lifecycle/paystand-lifecycle.yml
+  authentication: authentication/paystand-authentication.yml

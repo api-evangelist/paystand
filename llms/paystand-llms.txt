@@ -1,0 +1,163 @@
+# Paystand Documentation
+
+> Documentation for Paystand
+
+## API Reference
+- [Getting Started](https://developers.paystand.com/reference/getting-started.md)
+- [API Access](https://developers.paystand.com/reference/getting-api-access.md)
+- [API Requests](https://developers.paystand.com/reference/headers.md)
+- [Testing the API](https://developers.paystand.com/reference/testing-the-api.md): Test Cards, Banks, and Bank Logins
+- [Getting Started](https://developers.paystand.com/reference/getting-started-access.md): Getting Started with Access and Access Tokens for Paystand API
+- [Access Token](https://developers.paystand.com/reference/access-tokens.md)
+- [Create an access token](https://developers.paystand.com/reference/create-an-access-token.md)
+- [Getting Started](https://developers.paystand.com/reference/assurety.md)
+- [Assurety Assurors](https://developers.paystand.com/reference/manage-assurors.md)
+- [The assuror Object](https://developers.paystand.com/reference/the-assuror-object.md)
+- [Create an Assuror](https://developers.paystand.com/reference/create-assuror.md)
+- [Update an Assuror](https://developers.paystand.com/reference/update-an-assuror.md)
+- [Retrieve an Assuror](https://developers.paystand.com/reference/get-an-assuror.md)
+- [Activate an Assuror](https://developers.paystand.com/reference/activate-assuror.md)
+- [Deactivate an Assuror](https://developers.paystand.com/reference/deactivate-assuror.md)
+- [Assurety Chains](https://developers.paystand.com/reference/assurety-chains.md)
+- [The assuretyChain Object](https://developers.paystand.com/reference/the-chain-object.md)
+- [Retrieve a Chain](https://developers.paystand.com/reference/get-a-chain.md)
+- [List all Chains](https://developers.paystand.com/reference/list-chains.md)
+- [Assurety Contracts](https://developers.paystand.com/reference/assurety-contracts.md)
+- [The assuretyContract Object](https://developers.paystand.com/reference/the-contract-object.md)
+- [Retrieve a Contract](https://developers.paystand.com/reference/get-a-contract.md)
+- [Assurety Public](https://developers.paystand.com/reference/public-assurety-api.md)
+- [Retrieve an ABI](https://developers.paystand.com/reference/get-a-contract-spec.md)
+- [Retrieve a Schema](https://developers.paystand.com/reference/retrieve-a-contract-schema.md)
+- [Retrieve an Imprint](https://developers.paystand.com/reference/get-an-imprint.md)
+- [Retrieve a Token](https://developers.paystand.com/reference/retrieve-a-token.md)
+- [Assurety Records](https://developers.paystand.com/reference/managing-records.md)
+- [The assuretyRecord Object](https://developers.paystand.com/reference/the-record-object.md)
+- [The disclosure Object](https://developers.paystand.com/reference/the-disclosure-object.md)
+- [Create a Record](https://developers.paystand.com/reference/create-a-record.md)
+- [Update a Record](https://developers.paystand.com/reference/update-a-record.md)
+- [Retrieve a Record](https://developers.paystand.com/reference/get-a-record.md)
+- [List all Records](https://developers.paystand.com/reference/list-records.md)
+- [Disclose a Record](https://developers.paystand.com/reference/disclose-a-record.md)
+- [Assurety Schemas](https://developers.paystand.com/reference/managing-schemas.md)
+- [The assuretySchema Object](https://developers.paystand.com/reference/the-schema-object.md)
+- [Create a Schema](https://developers.paystand.com/reference/create-a-schema.md)
+- [Update a Schema](https://developers.paystand.com/reference/upate-a-schema.md)
+- [Retrieve a Schema](https://developers.paystand.com/reference/get-a-schema.md)
+- [List all Schemas](https://developers.paystand.com/reference/list-schemas.md)
+- [Activate a Schema](https://developers.paystand.com/reference/activate-a-schema.md)
+- [Deactivate a Schema](https://developers.paystand.com/reference/deactivate-a-schema.md)
+- [Assurety Wallets](https://developers.paystand.com/reference/manage-wallets.md)
+- [The assuretyWallet Object](https://developers.paystand.com/reference/the-wallet-object.md)
+- [Create a Wallet](https://developers.paystand.com/reference/create-a-wallet.md)
+- [Update a Wallet](https://developers.paystand.com/reference/update-a-wallet.md)
+- [Retrieve a Wallet](https://developers.paystand.com/reference/get-a-wallet.md)
+- [List all Wallets](https://developers.paystand.com/reference/list-wallets.md)
+- [Activate a Wallet](https://developers.paystand.com/reference/activate-a-wallet.md)
+- [Deactivate a Wallet](https://developers.paystand.com/reference/dectivate-a-wallet.md)
+- [Getting Started](https://developers.paystand.com/reference/getting-started-checkout.md)
+- [Introduction](https://developers.paystand.com/reference/portal-introduction.md): The Billing Portal loads a prepopulated checkout from a simple URL
+- [Introduction](https://developers.paystand.com/reference/checkout-introduction.md)
+- [Elements](https://developers.paystand.com/reference/checkout-elements.md)
+- [Button Examples](https://developers.paystand.com/reference/checkout-button-examples.md)
+- [Autoloading Example](https://developers.paystand.com/reference/checkout-autoloading-example.md)
+- [API Examples](https://developers.paystand.com/reference/checkout-api-examples.md)
+- [API Reference](https://developers.paystand.com/reference/checkout-api-reference.md)
+- [Abbreviations](https://developers.paystand.com/reference/checkout-abbreviations.md)
+- [Attributes](https://developers.paystand.com/reference/checkout-attributes.md): A list of all the allowed attributes in checkout.
+- [Accounts](https://developers.paystand.com/reference/account.md)
+- [The account object](https://developers.paystand.com/reference/the-account-object.md)
+- [The balances object](https://developers.paystand.com/reference/balance.md)
+- [Create an account](https://developers.paystand.com/reference/create-an-account.md)
+- [Update an account](https://developers.paystand.com/reference/update-an-account.md)
+- [Retrieve an account](https://developers.paystand.com/reference/retrieve-an-account.md)
+- [Retrieve the balances](https://developers.paystand.com/reference/balance-summary.md)
+- [Customer Banks](https://developers.paystand.com/reference/the-bank-resource.md)
+- [The bank object](https://developers.paystand.com/reference/the-bank-object.md)
+- [Create a bank](https://developers.paystand.com/reference/create-bank.md): Create a bank
+- [Update a bank](https://developers.paystand.com/reference/update-bank.md): Update a bank
+- [Retrieve a bank](https://developers.paystand.com/reference/retrieve-bank.md): Retrieve a bank
+- [Drop amounts](https://developers.paystand.com/reference/drop-bank-amounts.md)
+- [Verify amounts](https://developers.paystand.com/reference/verify-bank-drop-amounts.md): Verifying a bank account is done by sending the deposited drop amounts to this endpoint. Drops usually arrive in a customer's bank account within two business days of the two-drops being initiated.  Entering the amount here will verify a customer's ownership/access to a bank account. Once verified, a bank can be used for withdrawals/transfers.
+- [Set a default bank](https://developers.paystand.com/reference/set-a-default-bank.md): Set a given bank as the default bank for the customer.
+- [Bank History](https://developers.paystand.com/reference/bank-history.md)
+- [Request a history](https://developers.paystand.com/reference/request-history.md)
+- [Retrieve a bank](https://developers.paystand.com/reference/retrieve-a-bank-history-bank.md)
+- [Retrieve a history](https://developers.paystand.com/reference/retrieve-transactions.md)
+- [Event](https://developers.paystand.com/reference/events-basics.md)
+- [Retrieve an event](https://developers.paystand.com/reference/retrieve-event.md)
+- [Getting Started](https://developers.paystand.com/reference/getting-started-1.md)
+- [Payment Assurety](https://developers.paystand.com/reference/payment-assurety.md)
+- [The disclosure object](https://developers.paystand.com/reference/the-payment-assurety-object.md)
+- [Retrieve a disclosure](https://developers.paystand.com/reference/retrieve-a-disclosure.md): Once a payment has been posted and assured, its assurety record can be retrieved. The assurety record will not be available while the payment is in the process of being assured or before a payment is posted.
+- [Payment Balances](https://developers.paystand.com/reference/payment-balances.md)
+- [The balance object](https://developers.paystand.com/reference/the-balance-object.md)
+- [The balance change object](https://developers.paystand.com/reference/the-balance-change-object.md)
+- [The change object](https://developers.paystand.com/reference/the-change-object.md)
+- [Retrieve the balance](https://developers.paystand.com/reference/retrieve-a-balance.md)
+- [Retrieve a balance change](https://developers.paystand.com/reference/retrieve-a-balance-change-1.md)
+- [Payment Disputes](https://developers.paystand.com/reference/dispute-resource.md)
+- [The dispute object](https://developers.paystand.com/reference/the-dispute-object.md)
+- [Dispute creation](https://developers.paystand.com/reference/dispute-creation.md)
+- [Update a dispute](https://developers.paystand.com/reference/update-dispute.md)
+- [Retrieve a dispute](https://developers.paystand.com/reference/retrieve-dispute.md)
+- [List all disputes](https://developers.paystand.com/reference/list-all-disputes.md): Returns a list of all disputes you’ve previously created. The disputes are returned in sorted order, with the most recent refunds appearing first. For convenience, pagination is available with the limit and offset parameters.
+- [Payer](https://developers.paystand.com/reference/payers.md)
+- [The payer object](https://developers.paystand.com/reference/the-payer-object.md)
+- [Create a payer](https://developers.paystand.com/reference/create-a-payer.md)
+- [Update a payer](https://developers.paystand.com/reference/update-a-payer.md)
+- [Retrieve a payer](https://developers.paystand.com/reference/retrieve-a-payer.md)
+- [Bank](https://developers.paystand.com/reference/payment-banks.md)
+- [The payer bank object](https://developers.paystand.com/reference/the-payer-bank-object.md)
+- [Create a payer bank](https://developers.paystand.com/reference/create-a-payer-bank.md)
+- [Update a payer bank](https://developers.paystand.com/reference/update-a-payer-bank.md): Update a bank
+- [Retrieve a payer bank](https://developers.paystand.com/reference/retrieve-a-payment-bank.md)
+- [Card](https://developers.paystand.com/reference/the-card-resource.md)
+- [The payer card object](https://developers.paystand.com/reference/the-payer-card-object.md)
+- [Update a payer card](https://developers.paystand.com/reference/update-card.md): Update a card
+- [Retrieve a payer card](https://developers.paystand.com/reference/retrieve-card.md): Retrieve a card
+- [Payer Tokens](https://developers.paystand.com/reference/the-token-resource.md)
+- [The token object](https://developers.paystand.com/reference/the-token-object.md)
+- [Payment](https://developers.paystand.com/reference/the-payment-resource.md)
+- [The payment object](https://developers.paystand.com/reference/the-payment-object.md)
+- [Create a payment](https://developers.paystand.com/reference/create-payment.md): One of `payerId` or `payer` values are required in the request, but not both. Only one of `bank`, `cardId`, `bankId`, or `tokenId` are required in the request. The `accountKey` field defaults to the customer's default account.
+- [Update a payment](https://developers.paystand.com/reference/update-payment.md)
+- [List all payments](https://developers.paystand.com/reference/get-all-payments.md): Returns a list of all payments you’ve previously created. The payments are returned in sorted order, with the most recent refunds appearing first. For convenience, pagination is available with the limit and offset parameters.
+- [Retrieve a payment](https://developers.paystand.com/reference/retrieve-payment.md)
+- [Payment Refunds](https://developers.paystand.com/reference/refund-resource.md)
+- [The refund object](https://developers.paystand.com/reference/the-refund-object.md)
+- [Create a refund](https://developers.paystand.com/reference/create-refund.md)
+- [Update a refund](https://developers.paystand.com/reference/update-refund.md)
+- [Retrieve a refund](https://developers.paystand.com/reference/retrieve-refund.md)
+- [List all refunds](https://developers.paystand.com/reference/list-all-refunds.md): Returns a list of all refunds you’ve previously created. The refunds are returned in sorted order, with the most recent refunds appearing first. For convenience, pagination is available with the limit and offset parameters.
+- [The scheduled payment object](https://developers.paystand.com/reference/scheduled-payment.md)
+- [The schedule object](https://developers.paystand.com/reference/the-schedule-object.md)
+- [Create a scheduled payment](https://developers.paystand.com/reference/create-a-scheduled-payment.md): One of `payerId` or `payer` values are required in the request, but not both. Only one of `bank`, `cardId`, `bankId`, or `tokenId` are required in the request.
+- [Update a scheduled payment](https://developers.paystand.com/reference/update-a-scheduled-payment.md)
+- [Retrieve a scheduled payment](https://developers.paystand.com/reference/retrieve-a-scheduled-payment.md)
+- [Stop a schedule](https://developers.paystand.com/reference/stop-a-schedule.md)
+- [Resume a schedule](https://developers.paystand.com/reference/resume-a-schedule.md)
+- [Getting Started](https://developers.paystand.com/reference/getting-started-with-transfers.md)
+- [Transfer Report](https://developers.paystand.com/reference/transfer-report-resource.md)
+- [The report object](https://developers.paystand.com/reference/the-transfer-report-object.md)
+- [The report entry object](https://developers.paystand.com/reference/the-report-entry-object.md)
+- [Retrieve a report](https://developers.paystand.com/reference/transfer-report.md): Soon after a payment has been posted a transfer report will be generated to track the progress of the transfer report. Provide the transfer id to retrieve the status of the transfer report from this endpoint.
+- [Retrieve report entries](https://developers.paystand.com/reference/transfer-report-entries.md): Once a transfer report is complete or reversed, the entries associated with that report can be retrieved using this endpoint.
+- [Transfer](https://developers.paystand.com/reference/transfers.md)
+- [The transfers object](https://developers.paystand.com/reference/the-transfers-object.md)
+- [Retrieve a transfer](https://developers.paystand.com/reference/retrieve-a-transfer-1.md): Transfers are returned as a part of a withdrawal object. They can be also be retrieved using this endpoint, provided a transfer id.
+- [List all transfers](https://developers.paystand.com/reference/list-all-transfers.md): Returns a list of all transfers you’ve previously created. The transfers are returned in sorted order, with the most recent refunds appearing first. For convenience, pagination is available with the limit and offset parameters.
+- [Withdrawals](https://developers.paystand.com/reference/withdrawal-resource.md)
+- [The withdrawal object](https://developers.paystand.com/reference/the-withdrawal-object.md)
+- [The settings object](https://developers.paystand.com/reference/the-settings-object.md)
+- [Create a withdrawal](https://developers.paystand.com/reference/create-withdrawal.md): Create a withdrawal to send funds from a Paystand account to an external bank account. Provide an amount, currency, and bankId to create a withdrawal. Optionally provide a short description and meta to help describe and link the withdrawal to an external system. Specify an "accountKey" to use a specific paystand account as a source of funds for the withdrawal. The "default" paystand account for the customer will be used if no "accountKey" is specified in the request.  The withdrawal amount may not exceed the current available balance. The current available balance is determined by summing all payments with status "paid" and subtracting any refunds, disputes, holds, fees, and/or withdrawals. Withdrawals will usually appear in the bank account within two business days of the withdrawal being submitted.
+- [Update a withdrawal](https://developers.paystand.com/reference/update-withdrawal.md): Update a withdrawal's description or meta details. Note that once a withdrawal is created the amount, currency, accountKey, and bankId cannot be updated.
+- [Retrieve a withdrawal](https://developers.paystand.com/reference/retrieve-withdrawal.md)
+- [List all withdrawals](https://developers.paystand.com/reference/list-all-withdrawals.md): Returns a list of all withdrawals you’ve previously created. The withdrawals are returned in sorted order, with the most recent refunds appearing first. For convenience, pagination is available with the limit and offset parameters.
+- [Manage settings](https://developers.paystand.com/reference/update-an-auto-withdrawal-settings.md): Withdrawals can be scheduled to automatically be sent daily or weekly.  You can configure auto-withdrawals for a customer by managing their withdrawal settings. When the schedule runs, all available funds will attempt to be withdrawn. One withdrawal will be created for each account. Each account can be configured to have their funds sent to a different bank account.  The order of accounts listed in "active" is very important. When the auto-withdrawal schedule runs, withdrawals will attempt to draw from the accounts in the order given. However, if any accounts carry a negative balance, it will impact the maximum amount that can be withdrawn from any accounts with a positive balance. As a result, if there are active accounts with a negative balance, active accounts with a positive balance may not be able to withdraw all of their funds. The "active" list acts as a priority list of which accounts should take precedence over others.
+- [Meta](https://developers.paystand.com/reference/meta.md)
+- [Address](https://developers.paystand.com/reference/address.md)
+- [Contact](https://developers.paystand.com/reference/contact.md)
+- [Fee](https://developers.paystand.com/reference/fees.md)
+- [Hold](https://developers.paystand.com/reference/holds.md)
+- [Errors](https://developers.paystand.com/reference/error-resource.md)
+- [Testing](https://developers.paystand.com/reference/test-cards.md)

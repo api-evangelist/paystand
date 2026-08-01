@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: searched
+source: https://developers.paystand.com/reference/test-cards
+envelope: error.details / payment resource status
+notes: >-
+  Paystand does not publish a numeric decline-code table; decline behaviour is
+  documented through the sandbox test cards, which map specific test PANs to
+  specific decline outcomes. The outcomes below are the documented failure modes
+  a card charge can return. Successful/failed bank verification is driven by
+  micro-deposit amounts (see sandbox/paystand-sandbox.yml).
+decline_codes:
+- code: card_declined
+  meaning: The charge was declined by the issuer (generic decline).
+  action: Ask the payer for a different payment method.
+  test_trigger_pan: '4000000000000002'
+- code: expired_card
+  meaning: The card has expired.
+  action: Ask the payer for a card with a valid expiration date.
+  test_trigger_pan: '4000000000000069'
+- code: incorrect_cvc
+  meaning: The card security code (CVC) was incorrect.
+  action: Ask the payer to re-enter the CVC.
+  test_trigger_pan: '4000000000000127'
+- code: fraudulent
+  meaning: >-
+    Charge succeeds but is later disputed as fraudulent (chargeback simulation).
+  action: Handle via the disputes resource; monitor for chargebacks.
+  test_trigger_pan: '4000000000000259'

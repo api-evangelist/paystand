@@ -1,0 +1,22 @@
+generated: '2026-07-20'
+method: searched
+source: https://api.paystand.com/.well-known/openid-configuration
+host: https://api.paystand.com
+documents:
+- path: /.well-known/openid-configuration
+  status: 200
+  file: paystand-openid-configuration.json
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+notes: >-
+  Paystand publishes an OpenID Connect discovery document at
+  api.paystand.com/.well-known/openid-configuration (issuer
+  https://api.paystand.com/v3). It advertises client_credentials plus
+  authorization_code, password, refresh_token and token-exchange grants, a
+  single "auth" scope, and client_secret_basic/client_secret_post token auth.

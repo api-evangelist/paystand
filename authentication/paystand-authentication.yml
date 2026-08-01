@@ -1,0 +1,45 @@
+generated: '2026-07-20'
+method: searched
+source: https://api.paystand.com/.well-known/openid-configuration
+docs: https://developers.paystand.com/reference/getting-api-access
+summary:
+  types: [oauth2, apiKey, http]
+  api_key_in: [header]
+  oauth2_flows: [clientCredentials, authorizationCode, password]
+notes: >-
+  Authenticated Paystand API calls use an OAuth2 access token in the
+  Authorization header ("Bearer <token>") plus an X-CUSTOMER-ID header. Access
+  tokens are minted at the token endpoint with grant_type=client_credentials
+  using the application clientId/clientSecret (scope "auth"). Non-authenticated
+  (public checkout) calls use the X-PUBLISHABLE-KEY header carrying the
+  customer's publishable key.
+schemes:
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.paystand.com/v3/api/v3/oauth/token
+    scopes: [auth]
+  - flow: authorizationCode
+    authorizationUrl: https://api.paystand.com/v3/api/v3/oauth/authorize
+    tokenUrl: https://api.paystand.com/v3/api/v3/oauth/token
+    scopes: [auth]
+  token_endpoint_auth_methods: [client_secret_basic, client_secret_post]
+  source: https://api.paystand.com/.well-known/openid-configuration
+- name: Authorization
+  type: http
+  scheme: bearer
+  description: "Bearer <access_token> for authenticated calls."
+  source: https://developers.paystand.com/reference/headers
+- name: X-CUSTOMER-ID
+  type: apiKey
+  in: header
+  parameter: X-CUSTOMER-ID
+  description: Customer id, required for authenticated calls.
+  source: https://developers.paystand.com/reference/headers
+- name: X-PUBLISHABLE-KEY
+  type: apiKey
+  in: header
+  parameter: X-PUBLISHABLE-KEY
+  description: Customer's publishable API key, required for non-authenticated (public) calls.
+  source: https://developers.paystand.com/reference/headers

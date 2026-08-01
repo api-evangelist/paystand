@@ -1,0 +1,58 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: https://developers.paystand.com/llms.txt
+notes: >-
+  No official hosted/remote Paystand MCP server was found. This is a CANDIDATE
+  tool surface derived from the documented v3 API operations (Paystand publishes
+  no downloadable OpenAPI, so tools are grounded in the documented reference
+  endpoints, not a machine-readable spec). Not an authoritative Paystand claim.
+server:
+  name: paystand
+  transport: http
+tools:
+- name: create_access_token
+  description: Mint an OAuth2 access token (client_credentials).
+  source_operation: https://developers.paystand.com/reference/create-an-access-token
+- name: create_payment
+  description: Create a payment.
+  source_operation: https://developers.paystand.com/reference/create-payment
+- name: retrieve_payment
+  description: Retrieve a payment by id.
+  source_operation: https://developers.paystand.com/reference/retrieve-payment
+- name: list_payments
+  description: List payments (limit/offset pagination).
+  source_operation: https://developers.paystand.com/reference/get-all-payments
+- name: create_refund
+  description: Create a refund for a payment.
+  source_operation: https://developers.paystand.com/reference/create-refund
+- name: list_refunds
+  description: List refunds.
+  source_operation: https://developers.paystand.com/reference/list-all-refunds
+- name: create_dispute
+  description: Create a dispute.
+  source_operation: https://developers.paystand.com/reference/dispute-creation
+- name: list_disputes
+  description: List disputes.
+  source_operation: https://developers.paystand.com/reference/list-all-disputes
+- name: create_payer
+  description: Create a payer.
+  source_operation: https://developers.paystand.com/reference/create-a-payer
+- name: create_bank
+  description: Create a customer bank.
+  source_operation: https://developers.paystand.com/reference/create-bank
+- name: verify_bank_drop_amounts
+  description: Verify a bank via micro-deposit drop amounts.
+  source_operation: https://developers.paystand.com/reference/verify-bank-drop-amounts
+- name: create_withdrawal
+  description: Create a withdrawal to an external bank account.
+  source_operation: https://developers.paystand.com/reference/create-withdrawal
+- name: retrieve_balance
+  description: Retrieve account balances.
+  source_operation: https://developers.paystand.com/reference/balance-summary
+- name: retrieve_transfer_report
+  description: Retrieve a transfer report.
+  source_operation: https://developers.paystand.com/reference/transfer-report
+- name: create_scheduled_payment
+  description: Create a scheduled payment.
+  source_operation: https://developers.paystand.com/reference/create-a-scheduled-payment

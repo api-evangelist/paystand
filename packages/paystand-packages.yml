@@ -1,0 +1,33 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/paystand
+notes: >-
+  Paystand does not publish a general-purpose language client SDK. It maintains
+  first-party e-commerce integration packages (client libraries that wrap the
+  Paystand API for a host platform) in its GitHub organization. Third-party
+  forks are excluded.
+packages:
+- language: php
+  registry: github
+  name: paystand-magento2
+  url: https://github.com/paystand/paystand-magento2
+  install: Install via Magento 2 module / Composer
+  official: true
+  kind: platform-integration
+  description: Official Paystand payment module for Magento 2.
+- language: php
+  registry: github
+  name: paystand-woocommerce
+  url: https://github.com/paystand/paystand-woocommerce
+  install: Install via WooCommerce / WordPress plugin
+  official: true
+  kind: platform-integration
+  description: Official Paystand payment gateway plugin for WooCommerce.
+- language: typescript
+  registry: github
+  name: bigcommerce-checkout-js
+  url: https://github.com/paystand/bigcommerce-checkout-js
+  install: Build from source
+  official: true
+  kind: platform-integration
+  description: Paystand checkout integration for BigCommerce.

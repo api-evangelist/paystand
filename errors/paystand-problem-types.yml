@@ -1,0 +1,44 @@
+generated: '2026-07-20'
+method: searched
+source: https://developers.paystand.com/reference/error-resource
+format: custom
+envelope:
+  root: error
+  fields:
+    name: The HTTP status code name.
+    status: The HTTP status code (numeric).
+    type: The error type (e.g. requestError).
+    description: The description for the error type.
+    ref: A unique reference code given to each error.
+    details: >-
+      Optional nested object: code, detailCode, description, parameter, value,
+      explanation.
+  example: |
+    {
+      "error": {
+        "name": "unprocessableEntity",
+        "status": "422",
+        "type": "requestError",
+        "description": "There was a problem with the request.",
+        "details": {
+          "code": "validationError",
+          "detailCode": "",
+          "description": "There are requirements that have not been met.",
+          "parameter": "amount",
+          "explanation": "amount is required"
+        },
+        "ref": "5540b94cffee444cb4e12b761ca93183"
+      }
+    }
+problems:
+- name: unprocessableEntity
+  status: 422
+  type: requestError
+  title: Unprocessable entity
+  detail: There was a problem with the request; validation requirements not met.
+  example_detail_code: validationError
+notes: >-
+  Paystand documents a single canonical error object shape (see envelope) rather
+  than a per-status catalogue. The HTTP status is carried in error.status and a
+  machine code in error.details.code (e.g. validationError). Card/bank payment
+  failures surface as decline reasons — see errors/paystand-decline-codes.yml.

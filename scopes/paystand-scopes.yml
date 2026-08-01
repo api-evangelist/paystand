@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: searched
+source: https://api.paystand.com/.well-known/openid-configuration
+docs: https://developers.paystand.com/reference/access-tokens
+schemes:
+- name: oauth2
+  source: https://api.paystand.com/.well-known/openid-configuration
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.paystand.com/v3/api/v3/oauth/token
+  - flow: authorizationCode
+    authorizationUrl: https://api.paystand.com/v3/api/v3/oauth/authorize
+    tokenUrl: https://api.paystand.com/v3/api/v3/oauth/token
+scopes:
+- scope: auth
+  description: >-
+    The single scope Paystand advertises in its OpenID Connect discovery
+    document (scopes_supported) and documents on the Access Token page
+    (scope: auth). Access tokens are requested with grant_type=client_credentials.
+  flows: [clientCredentials, authorizationCode]
+  sources: [https://api.paystand.com/.well-known/openid-configuration]
+notes: >-
+  Paystand exposes coarse OAuth scoping — a single "auth" scope. Fine-grained
+  authorization is enforced by the claims/permissions embedded in the issued
+  token (claims_supported includes roles and permissions), not by OAuth scopes.

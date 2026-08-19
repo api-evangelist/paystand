@@ -2,11 +2,9 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: https://developers.paystand.com/llms.txt
-notes: >-
-  No official hosted/remote Paystand MCP server was found. This is a CANDIDATE
-  tool surface derived from the documented v3 API operations (Paystand publishes
-  no downloadable OpenAPI, so tools are grounded in the documented reference
-  endpoints, not a machine-readable spec). Not an authoritative Paystand claim.
+notes: No official hosted/remote Paystand MCP server was found. This is a CANDIDATE tool surface derived
+  from the documented v3 API operations (Paystand publishes no downloadable OpenAPI, so tools are grounded
+  in the documented reference endpoints, not a machine-readable spec). Not an authoritative Paystand claim.
 server:
   name: paystand
   transport: http
@@ -56,3 +54,9 @@ tools:
 - name: create_scheduled_payment
   description: Create a scheduled payment.
   source_operation: https://developers.paystand.com/reference/create-a-scheduled-payment
+deployment:
+  mode: none
+  verified: derived
+  tools: 15
+  checked: '2026-08-12'
+  source: catalog MCP census

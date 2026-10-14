@@ -1,17 +1,14 @@
 aid: paystand
+
 name: PayStand
-description: >-
-  Paystand is a blockchain-enabled B2B payments and receivables automation
-  platform that lets businesses send, receive, and reconcile payments with
-  zero-fee bank-to-bank (ACH/EFT) transfers, card acceptance, and a
-  Bitcoin-anchored "Assurety" certified audit trail. The Paystand Developer API
-  (v3) exposes payments, refunds, disputes, payers, customer banks, accounts and
-  balances, scheduled payments, transfers, withdrawals (including auto-withdrawal
-  settings), a Checkout / Billing Portal embed surface, an Events resource, and
-  the Assurety blockchain notarization APIs (assurors, chains, contracts,
-  records, schemas, wallets). It integrates with major ERPs and e-commerce
-  platforms (Magento, WooCommerce, BigCommerce) and is used to automate accounts
-  receivable and payable for mid-market and enterprise finance teams.
+
+description: Paystand is a blockchain-enabled B2B payments and receivables automation platform that lets businesses send, receive, and reconcile
+  payments with zero-fee bank-to-bank (ACH/EFT) transfers, card acceptance, and a Bitcoin-anchored "Assurety" certified audit trail. The Paystand
+  Developer API (v3) exposes payments, refunds, disputes, payers, customer banks, accounts and balances, scheduled payments, transfers, withdrawals
+  (including auto-withdrawal settings), a Checkout / Billing Portal embed surface, an Events resource, and the Assurety blockchain notarization
+  APIs (assurors, chains, contracts, records, schemas, wallets). It integrates with major ERPs and e-commerce platforms (Magento, WooCommerce,
+  BigCommerce) and is used to automate accounts receivable and payable for mid-market and enterprise finance teams.
+
 deliveryModel:
   model: saas
   open_source: false
@@ -23,6 +20,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: unknown
   onboarding: self-serve
@@ -35,22 +33,34 @@ accessModel:
   - authentication
   generated: '2026-07-22'
   method: derived
+
 image: https://www.paystand.com/hubfs/paystand-logo.png
+
 url: https://raw.githubusercontent.com/api-evangelist/paystand/refs/heads/main/apis.yml
+
 x-enrichment:
   date: '2026-07-20'
   status: enriched
   artifacts_added: 16
   pass: local-v1
+
 x-type: company
+
 x-source: vc-portfolio
+
 x-backed-by:
 - battery-ventures
+
 x-tier: stub
+
 x-tier-reason: portfolio-lead
+
 specificationVersion: '0.23'
+
 created: '2026-07-17'
+
 modified: '2026-10-06'
+
 tags:
 - Company
 - Payments
@@ -62,48 +72,26 @@ tags:
 - ACH
 - Billing
 - Checkout
-apis:
-- name: Paystand Developer API
-  description: >-
-    Paystand v3 REST API for B2B payments: create and manage payments, refunds,
-    disputes, payers, customer banks, accounts, balances, scheduled payments,
-    transfers and withdrawals, plus the Assurety blockchain notarization surface
-    and Checkout / Billing Portal embed.
-  humanURL: https://developers.paystand.com/reference
-  baseURL: https://api.paystand.com/v3
-  tags:
-  - Payments
-  - B2B Payments
-  - ACH
-  - Blockchain
-  properties:
-  - type: Authentication
-    url: authentication/paystand-authentication.yml
-  - type: OAuthScopes
-    url: scopes/paystand-scopes.yml
-  - type: ErrorCatalog
-    url: errors/paystand-problem-types.yml
-  - type: DeclineCodes
-    url: errors/paystand-decline-codes.yml
-  - type: Conventions
-    url: conventions/paystand-conventions.yml
-  - type: DataModel
-    url: data-model/paystand-data-model.yml
-  - type: Sandbox
-    url: sandbox/paystand-sandbox.yml
-  - type: X-MCPServerCandidate
-    url: mcp/paystand-mcp.yml
-    note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
-  - type: Lifecycle
-    url: lifecycle/paystand-lifecycle.yml
-  - type: Conformance
-    url: conformance/paystand-conformance.yml
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: AgenticAccess
+  url: agentic-access/paystand-agentic-access.yml
+- type: Spectral
+  url: rules/paystand-rules.yml
+- type: Deprecation
+  url: lifecycle/paystand-lifecycle.yml
+- type: Hosts
+  url: hosts/paystand-hosts.yml
+- type: Vendors
+  url: vendors/paystand-vendors.yml
+- type: Newsroom
+  url: https://www.paystand.com/press
 - url: https://www.paystand.com/blog/rss.xml
   type: BlogRSS
 - type: DomainSecurity
@@ -146,3 +134,66 @@ common:
   url: packages/paystand-packages.yml
 - type: Components
   url: components/paystand-components.yml
+
+apis:
+- name: Paystand Developer API
+  description: 'Paystand v3 REST API for B2B payments: create and manage payments, refunds, disputes, payers, customer banks, accounts, balances,
+    scheduled payments, transfers and withdrawals, plus the Assurety blockchain notarization surface and Checkout / Billing Portal embed.'
+  humanURL: https://developers.paystand.com/reference
+  baseURL: https://api.paystand.com/v3
+  tags:
+  - Payments
+  - B2B Payments
+  - ACH
+  - Blockchain
+  properties:
+  - type: Authentication
+    url: authentication/paystand-authentication.yml
+  - type: OAuthScopes
+    url: scopes/paystand-scopes.yml
+  - type: ErrorCatalog
+    url: errors/paystand-problem-types.yml
+  - type: DeclineCodes
+    url: errors/paystand-decline-codes.yml
+  - type: Conventions
+    url: conventions/paystand-conventions.yml
+  - type: DataModel
+    url: data-model/paystand-data-model.yml
+  - type: Sandbox
+    url: sandbox/paystand-sandbox.yml
+  - type: X-MCPServerCandidate
+    url: mcp/paystand-mcp.yml
+    note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published
+      API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting
+      the artifact-type surfaces with a server that does not exist.'
+  - type: Lifecycle
+    url: lifecycle/paystand-lifecycle.yml
+  - type: Conformance
+    url: conformance/paystand-conformance.yml
+  aid: paystand:paystand-developer-api
+- aid: paystand:paystand-sandbox-open-api
+  name: PayStand Sandbox Open API
+  description: The Sandbox Open API from PayStand — 1 operation(s) for sandbox open.
+  humanURL: https://developers.paystand.com/reference
+  baseURL: https://api.paystand.com/v3
+  tags:
+  - Sandbox Open
+  properties:
+  - type: OpenAPI
+    url: openapi/paystand-sandbox-open-api-openapi.yml
+- aid: paystand:paystand-sandbox-secure-api
+  name: PayStand Sandbox Secure API
+  description: The Sandbox Secure API from PayStand — 11 operation(s) for sandbox secure.
+  humanURL: https://developers.paystand.com/reference
+  baseURL: https://api.paystand.com/v3
+  tags:
+  - Sandbox Secure
+  properties:
+  - type: OpenAPI
+    url: openapi/paystand-sandbox-secure-api-openapi.yml
+
+x-readme-harvest:
+  date: '2026-10-14'
+  ops: 12
+  tool: harvest-readme-openapi.py
+  portal: https://developers.paystand.com

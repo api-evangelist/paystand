@@ -1,0 +1,3345 @@
+[
+ {
+  "page": "https://developers.paystand.com/reference/create-an-account.md",
+  "definition": {
+   "openapi": "3.1.0",
+   "info": {
+    "title": "Sandbox Secure API",
+    "version": "3.2.1"
+   },
+   "servers": [
+    {
+     "url": "https://api.paystand.co/v3"
+    }
+   ],
+   "components": {
+    "securitySchemes": {
+     "sec0": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-CUSTOMER-ID",
+      "x-default": "axjf9rjo9o6ojp5kcya7vle0"
+     },
+     "sec1": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "x-bearer-format": "bearer",
+      "x-default": "zGwAN7EfU9HYsGlcIQGGBKZ75Xug1Zdy"
+     },
+     "sec2": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Accept",
+      "x-default": "application/json"
+     },
+     "sec3": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Content-Type",
+      "x-default": "application/json"
+     }
+    }
+   },
+   "security": [
+    {
+     "sec0": [],
+     "sec1": [],
+     "sec2": [],
+     "sec3": []
+    }
+   ],
+   "paths": {
+    "/balances/accounts": {
+     "post": {
+      "summary": "Create an account",
+      "description": "",
+      "operationId": "create-an-account",
+      "requestBody": {
+       "content": {
+        "application/json": {
+         "schema": {
+          "type": "object",
+          "required": [
+           "name",
+           "key"
+          ],
+          "properties": {
+           "name": {
+            "type": "string",
+            "description": "The name of the account",
+            "default": "California Funds Account"
+           },
+           "key": {
+            "type": "string",
+            "description": "A key for the account.",
+            "default": "california_account"
+           }
+          }
+         }
+        }
+       }
+      },
+      "responses": {
+       "200": {
+        "description": "200",
+        "content": {
+         "application/json": {
+          "examples": {
+           "Result": {
+            "value": "{\n  \"id\":\"h3qo5rine8itrr43wfen2356\",\n  \"object\":\"balanceAccount\",\n  \"name\": \"California Funds Account\",\n  \"key\": \"california_account\",\n  \"status\": \"active\",\n  \"created\": \"2015-10-28T22:55:09.000Z\",\n  \"lastUpdated\": \"2015-10-28T22:55:13.000Z\"\n}"
+           }
+          },
+          "schema": {
+           "type": "object",
+           "properties": {
+            "id": {
+             "type": "string",
+             "example": "h3qo5rine8itrr43wfen2356"
+            },
+            "object": {
+             "type": "string",
+             "example": "balanceAccount"
+            },
+            "name": {
+             "type": "string",
+             "example": "California Funds Account"
+            },
+            "key": {
+             "type": "string",
+             "example": "california_account"
+            },
+            "status": {
+             "type": "string",
+             "example": "active"
+            },
+            "created": {
+             "type": "string",
+             "example": "2015-10-28T22:55:09.000Z"
+            },
+            "lastUpdated": {
+             "type": "string",
+             "example": "2015-10-28T22:55:13.000Z"
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "deprecated": false
+     }
+    }
+   },
+   "x-readme": {
+    "headers": [],
+    "explorer-enabled": true,
+    "proxy-enabled": true
+   },
+   "x-readme-fauxas": true,
+   "_id": "5e9e175f080ddd0012148b8b:5e90bf59e3354c005a756e3a"
+  }
+ },
+ {
+  "page": "https://developers.paystand.com/reference/balance-summary.md",
+  "definition": {
+   "openapi": "3.1.0",
+   "info": {
+    "title": "Sandbox Secure API",
+    "version": "3.2.1"
+   },
+   "servers": [
+    {
+     "url": "https://api.paystand.co/v3"
+    }
+   ],
+   "components": {
+    "securitySchemes": {
+     "sec0": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-CUSTOMER-ID",
+      "x-default": "axjf9rjo9o6ojp5kcya7vle0"
+     },
+     "sec1": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "x-bearer-format": "bearer",
+      "x-default": "zGwAN7EfU9HYsGlcIQGGBKZ75Xug1Zdy"
+     },
+     "sec2": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Accept",
+      "x-default": "application/json"
+     },
+     "sec3": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Content-Type",
+      "x-default": "application/json"
+     }
+    }
+   },
+   "security": [
+    {
+     "sec0": [],
+     "sec1": [],
+     "sec2": [],
+     "sec3": []
+    }
+   ],
+   "paths": {
+    "/balances/summary": {
+     "get": {
+      "summary": "Retrieve the balances",
+      "description": "",
+      "operationId": "balance-summary",
+      "parameters": [
+       {
+        "name": "accounts",
+        "in": "query",
+        "description": "List of accounts to show. [default, your_key]",
+        "schema": {
+         "type": "string",
+         "default": "default"
+        }
+       }
+      ],
+      "responses": {
+       "200": {
+        "description": "200",
+        "content": {
+         "application/json": {
+          "examples": {
+           "Result": {
+            "value": "{\n  \"usd\": {\n    \"default\": {\n      \"available\": \"20.00\",\n      \"pending\": \"80.00\",\n      \"current\": \"100.00\"\n    },\n    \"california_funds\": {\n      \"available\": \"10.00\",\n      \"pending\": \"0.00\",\n      \"current\": \"10.00\" \n    }\n  }\n}"
+           }
+          },
+          "schema": {
+           "type": "object",
+           "properties": {
+            "usd": {
+             "type": "object",
+             "properties": {
+              "default": {
+               "type": "object",
+               "properties": {
+                "available": {
+                 "type": "string",
+                 "example": "20.00"
+                },
+                "pending": {
+                 "type": "string",
+                 "example": "80.00"
+                },
+                "current": {
+                 "type": "string",
+                 "example": "100.00"
+                }
+               }
+              },
+              "california_funds": {
+               "type": "object",
+               "properties": {
+                "available": {
+                 "type": "string",
+                 "example": "10.00"
+                },
+                "pending": {
+                 "type": "string",
+                 "example": "0.00"
+                },
+                "current": {
+                 "type": "string",
+                 "example": "10.00"
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "deprecated": false
+     }
+    }
+   },
+   "x-readme": {
+    "headers": [],
+    "explorer-enabled": true,
+    "proxy-enabled": true
+   },
+   "x-readme-fauxas": true,
+   "_id": "5e9e175f080ddd0012148b8b:5e90bf59e3354c005a756e42"
+  }
+ },
+ {
+  "page": "https://developers.paystand.com/reference/create-bank.md",
+  "definition": {
+   "openapi": "3.1.0",
+   "info": {
+    "title": "Sandbox Secure API",
+    "version": "3.2.1"
+   },
+   "servers": [
+    {
+     "url": "https://api.paystand.co/v3"
+    }
+   ],
+   "components": {
+    "securitySchemes": {
+     "sec0": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-CUSTOMER-ID",
+      "x-default": "axjf9rjo9o6ojp5kcya7vle0"
+     },
+     "sec1": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "x-bearer-format": "bearer",
+      "x-default": "zGwAN7EfU9HYsGlcIQGGBKZ75Xug1Zdy"
+     },
+     "sec2": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Accept",
+      "x-default": "application/json"
+     },
+     "sec3": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Content-Type",
+      "x-default": "application/json"
+     }
+    }
+   },
+   "security": [
+    {
+     "sec0": [],
+     "sec1": [],
+     "sec2": [],
+     "sec3": []
+    }
+   ],
+   "paths": {
+    "/banks": {
+     "post": {
+      "summary": "Create a bank",
+      "description": "Create a bank",
+      "operationId": "create-bank",
+      "requestBody": {
+       "content": {
+        "application/json": {
+         "schema": {
+          "type": "object",
+          "required": [
+           "nameOnAccount",
+           "accountType",
+           "accountHolderType",
+           "accountNumber",
+           "routingNumber",
+           "currency",
+           "country",
+           "billingAddress"
+          ],
+          "properties": {
+           "nameOnAccount": {
+            "type": "string",
+            "description": "The name on the account.",
+            "default": "Jessica Lin"
+           },
+           "accountType": {
+            "type": "string",
+            "description": "The account type of the bank [checking, saving]",
+            "default": "checking"
+           },
+           "accountHolderType": {
+            "type": "string",
+            "description": "The account holder type for the bank. [company, individual]",
+            "default": "company"
+           },
+           "accountNumber": {
+            "type": "string",
+            "description": "The account number of the bank.",
+            "default": "000123456789"
+           },
+           "routingNumber": {
+            "type": "string",
+            "description": "The routing number of the bank.",
+            "default": "110000000"
+           },
+           "currency": {
+            "type": "string",
+            "description": "The currency of the bank account.",
+            "default": "USD"
+           },
+           "country": {
+            "type": "string",
+            "description": "The country of the bank account.",
+            "default": "USA"
+           },
+           "billingAddress": {
+            "type": "object",
+            "description": "The billing address of the bank account.",
+            "properties": {
+             "street1": {
+              "type": "string",
+              "default": "123 First St"
+             },
+             "street2": {
+              "type": "string",
+              "default": "#2"
+             },
+             "city": {
+              "type": "string",
+              "default": "Santa Cruz"
+             },
+             "state": {
+              "type": "string",
+              "default": "CA"
+             },
+             "postalCode": {
+              "type": "string",
+              "default": "95060"
+             },
+             "country": {
+              "type": "string",
+              "default": "USA"
+             }
+            }
+           },
+           "meta": {
+            "type": "string",
+            "description": "Optional key/values to help link the bank to an external system.",
+            "default": "{}",
+            "format": "json"
+           }
+          }
+         }
+        }
+       }
+      },
+      "responses": {
+       "200": {
+        "description": "200",
+        "content": {
+         "application/json": {
+          "examples": {
+           "Result": {
+            "value": "{\n  \"object\": \"bank\",\n  \"id\": \"kav410bdsww9nat8gafwrb\",\n  \"accountType\": \"checking\",\n  \"routingNumber\": \"110000000\",\n  \"nameOnAccount\": \"Jessica Lin\",\n  \"currency\": \"USD\",\n  \"country\": \"USA\",\n  \"last4\": \"6789\",\n  \"fingerprint\": \"lv5rz4qvndasdaasd34v62u2d2y\",\n  \"billingAddress\": {\n    \"street1\": \"923 test account st\",\n    \"street2\": \"9g\",\n    \"city\": \"santa cruz\",\n    \"state\": \"CA\",\n    \"postalCode\": \"90040\",\n    \"country\": \"USA\"\n  },\n  \"dropped\": false,\n  \"verified\": false,\n  \"status\": \"active\",\n  \"created\": \"2015-10-28T22:56:20.000Z\",\n  \"lastUpdated\": \"2015-10-28T24:56:20.000Z\"\n}"
+           }
+          },
+          "schema": {
+           "type": "object",
+           "properties": {
+            "object": {
+             "type": "string",
+             "example": "bank"
+            },
+            "id": {
+             "type": "string",
+             "example": "kav410bdsww9nat8gafwrb"
+            },
+            "accountType": {
+             "type": "string",
+             "example": "checking"
+            },
+            "routingNumber": {
+             "type": "string",
+             "example": "110000000"
+            },
+            "nameOnAccount": {
+             "type": "string",
+             "example": "Jessica Lin"
+            },
+            "currency": {
+             "type": "string",
+             "example": "USD"
+            },
+            "country": {
+             "type": "string",
+             "example": "USA"
+            },
+            "last4": {
+             "type": "string",
+             "example": "6789"
+            },
+            "fingerprint": {
+             "type": "string",
+             "example": "lv5rz4qvndasdaasd34v62u2d2y"
+            },
+            "billingAddress": {
+             "type": "object",
+             "properties": {
+              "street1": {
+               "type": "string",
+               "example": "923 test account st"
+              },
+              "street2": {
+               "type": "string",
+               "example": "9g"
+              },
+              "city": {
+               "type": "string",
+               "example": "santa cruz"
+              },
+              "state": {
+               "type": "string",
+               "example": "CA"
+              },
+              "postalCode": {
+               "type": "string",
+               "example": "90040"
+              },
+              "country": {
+               "type": "string",
+               "example": "USA"
+              }
+             }
+            },
+            "dropped": {
+             "type": "boolean",
+             "example": false,
+             "default": true
+            },
+            "verified": {
+             "type": "boolean",
+             "example": false,
+             "default": true
+            },
+            "status": {
+             "type": "string",
+             "example": "active"
+            },
+            "created": {
+             "type": "string",
+             "example": "2015-10-28T22:56:20.000Z"
+            },
+            "lastUpdated": {
+             "type": "string",
+             "example": "2015-10-28T24:56:20.000Z"
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "deprecated": false
+     }
+    }
+   },
+   "x-readme": {
+    "headers": [],
+    "explorer-enabled": true,
+    "proxy-enabled": true
+   },
+   "x-readme-fauxas": true,
+   "_id": "5e9e175f080ddd0012148b8b:5e90bf59e3354c005a756e01"
+  }
+ },
+ {
+  "page": "https://developers.paystand.com/reference/create-a-payer.md",
+  "definition": {
+   "openapi": "3.1.0",
+   "info": {
+    "title": "Sandbox Secure API",
+    "version": "3.2.1"
+   },
+   "servers": [
+    {
+     "url": "https://api.paystand.co/v3"
+    }
+   ],
+   "components": {
+    "securitySchemes": {
+     "sec0": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-CUSTOMER-ID",
+      "x-default": "axjf9rjo9o6ojp5kcya7vle0"
+     },
+     "sec1": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "x-bearer-format": "bearer",
+      "x-default": "zGwAN7EfU9HYsGlcIQGGBKZ75Xug1Zdy"
+     },
+     "sec2": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Accept",
+      "x-default": "application/json"
+     },
+     "sec3": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Content-Type",
+      "x-default": "application/json"
+     }
+    }
+   },
+   "security": [
+    {
+     "sec0": [],
+     "sec1": [],
+     "sec2": [],
+     "sec3": []
+    }
+   ],
+   "paths": {
+    "/payers": {
+     "post": {
+      "summary": "Create a payer",
+      "description": "",
+      "operationId": "create-a-payer",
+      "requestBody": {
+       "content": {
+        "application/json": {
+         "schema": {
+          "type": "object",
+          "required": [
+           "name",
+           "email"
+          ],
+          "properties": {
+           "name": {
+            "type": "string",
+            "description": "The name of the payer",
+            "default": "Christina C"
+           },
+           "email": {
+            "type": "string",
+            "description": "The email of the payer",
+            "default": "christinac@paystand.com"
+           },
+           "address": {
+            "type": "object",
+            "description": "The address for the payer.",
+            "properties": {
+             "street1": {
+              "type": "string",
+              "default": "123 First St"
+             },
+             "street2": {
+              "type": "string",
+              "default": "#2"
+             },
+             "city": {
+              "type": "string",
+              "default": "Santa Cruz"
+             },
+             "state": {
+              "type": "string",
+              "default": "CA"
+             },
+             "postalCode": {
+              "type": "string",
+              "default": "95060"
+             },
+             "country": {
+              "type": "string",
+              "default": "USA"
+             }
+            }
+           },
+           "meta": {
+            "type": "string",
+            "description": "Optional key/values to help link a payer to an external system.",
+            "default": "{}",
+            "format": "json"
+           }
+          }
+         }
+        }
+       }
+      },
+      "responses": {
+       "200": {
+        "description": "200",
+        "content": {
+         "application/json": {
+          "examples": {
+           "Result": {
+            "value": "{\n  \"id\": \"577b2ada121841e08b429444\",\n  \"object\": \"payer\",\n  \"name\": \"Christina C\",\n  \"email\": \"christinac@paystand.com\",\n  \"address\": {\n    \"id\": \"905b3a4c929c4d958092dce2\",\n    \"object\": \"address\",\n    \"street1\": \"41 Grandview St Unit C\",\n    \"city\": \"Santa Cruz\",\n    \"state\": \"CA\",\n    \"postalCode\": \"95060\",\n    \"country\": \"USA\",\n    \"status\": \"active\",\n    \"created\": \"2018-08-07T20:07:14.000Z\",\n    \"lastUpdated\": \"2018-08-07T20:07:14.000Z\"\n  },\n  \"status\": \"active\",\n  \"created\": \"2018-08-07T20:07:14.000Z\",\n  \"lastUpdated\": \"2018-08-07T20:07:14.000Z\"\n}"
+           }
+          },
+          "schema": {
+           "type": "object",
+           "properties": {
+            "id": {
+             "type": "string",
+             "example": "577b2ada121841e08b429444"
+            },
+            "object": {
+             "type": "string",
+             "example": "payer"
+            },
+            "name": {
+             "type": "string",
+             "example": "Christina C"
+            },
+            "email": {
+             "type": "string",
+             "example": "christinac@paystand.com"
+            },
+            "address": {
+             "type": "object",
+             "properties": {
+              "id": {
+               "type": "string",
+               "example": "905b3a4c929c4d958092dce2"
+              },
+              "object": {
+               "type": "string",
+               "example": "address"
+              },
+              "street1": {
+               "type": "string",
+               "example": "41 Grandview St Unit C"
+              },
+              "city": {
+               "type": "string",
+               "example": "Santa Cruz"
+              },
+              "state": {
+               "type": "string",
+               "example": "CA"
+              },
+              "postalCode": {
+               "type": "string",
+               "example": "95060"
+              },
+              "country": {
+               "type": "string",
+               "example": "USA"
+              },
+              "status": {
+               "type": "string",
+               "example": "active"
+              },
+              "created": {
+               "type": "string",
+               "example": "2018-08-07T20:07:14.000Z"
+              },
+              "lastUpdated": {
+               "type": "string",
+               "example": "2018-08-07T20:07:14.000Z"
+              }
+             }
+            },
+            "status": {
+             "type": "string",
+             "example": "active"
+            },
+            "created": {
+             "type": "string",
+             "example": "2018-08-07T20:07:14.000Z"
+            },
+            "lastUpdated": {
+             "type": "string",
+             "example": "2018-08-07T20:07:14.000Z"
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "deprecated": false
+     }
+    }
+   },
+   "x-readme": {
+    "headers": [],
+    "explorer-enabled": true,
+    "proxy-enabled": true
+   },
+   "x-readme-fauxas": true,
+   "_id": "5e9e175f080ddd0012148b8b:5e90bf59e3354c005a756e50"
+  }
+ },
+ {
+  "page": "https://developers.paystand.com/reference/create-payment.md",
+  "definition": {
+   "openapi": "3.1.0",
+   "info": {
+    "title": "Sandbox Secure API",
+    "version": "3.2.1"
+   },
+   "servers": [
+    {
+     "url": "https://api.paystand.co/v3"
+    }
+   ],
+   "components": {
+    "securitySchemes": {
+     "sec0": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-CUSTOMER-ID",
+      "x-default": "axjf9rjo9o6ojp5kcya7vle0"
+     },
+     "sec1": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "x-bearer-format": "bearer",
+      "x-default": "zGwAN7EfU9HYsGlcIQGGBKZ75Xug1Zdy"
+     },
+     "sec2": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Accept",
+      "x-default": "application/json"
+     },
+     "sec3": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Content-Type",
+      "x-default": "application/json"
+     }
+    }
+   },
+   "security": [
+    {
+     "sec0": [],
+     "sec1": [],
+     "sec2": [],
+     "sec3": []
+    }
+   ],
+   "paths": {
+    "/payments/secure": {
+     "post": {
+      "summary": "Create a payment",
+      "description": "One of `payerId` or `payer` values are required in the request, but not both.\nOnly one of `bank`, `cardId`, `bankId`, or `tokenId` are required in the request.\nThe `accountKey` field defaults to the customer's default account.",
+      "operationId": "create-payment",
+      "requestBody": {
+       "content": {
+        "application/json": {
+         "schema": {
+          "type": "object",
+          "required": [
+           "amount",
+           "currency",
+           "cardId",
+           "bankId",
+           "bank",
+           "payerId",
+           "payer"
+          ],
+          "properties": {
+           "amount": {
+            "type": "string",
+            "description": "The amount of the payment",
+            "default": "5000.00"
+           },
+           "currency": {
+            "type": "string",
+            "description": "The currency of the payment",
+            "default": "USD"
+           },
+           "cardId": {
+            "type": "string",
+            "description": "The card object to use for the card payment"
+           },
+           "bankId": {
+            "type": "string"
+           },
+           "bank": {
+            "type": "object",
+            "description": "The bank object to use for the bank payment",
+            "properties": {
+             "nameOnAccount": {
+              "type": "string",
+              "default": "Jessica Lin"
+             },
+             "accountHolderType": {
+              "type": "string",
+              "default": "company"
+             },
+             "accountNumber": {
+              "type": "string",
+              "default": "000123456789"
+             },
+             "routingNumber": {
+              "type": "string",
+              "default": "110000000"
+             },
+             "accountType": {
+              "type": "string",
+              "description": "checking, savings",
+              "default": "checking"
+             },
+             "country": {
+              "type": "string",
+              "default": "USA"
+             },
+             "currency": {
+              "type": "string",
+              "default": "USD"
+             }
+            }
+           },
+           "payerId": {
+            "type": "string",
+            "description": "The id of the payer to assign to the card."
+           },
+           "payer": {
+            "type": "object",
+            "description": "A payer object to create and assign to the card.",
+            "properties": {
+             "name": {
+              "type": "string",
+              "default": "Shalin Shaun"
+             },
+             "email": {
+              "type": "string",
+              "default": "shalin+test@paystand.com"
+             },
+             "address": {
+              "type": "object",
+              "properties": {
+               "street1": {
+                "type": "string",
+                "default": "123 First St"
+               },
+               "street2": {
+                "type": "string",
+                "default": "#2"
+               },
+               "city": {
+                "type": "string",
+                "default": "Santa Cruz"
+               },
+               "state": {
+                "type": "string",
+                "default": "CA"
+               },
+               "postalCode": {
+                "type": "string",
+                "default": "95060"
+               },
+               "country": {
+                "type": "string",
+                "default": "USA"
+               }
+              }
+             }
+            }
+           },
+           "accountKey": {
+            "type": "string",
+            "description": "The key of the account to send the funds to"
+           },
+           "meta": {
+            "type": "string",
+            "description": "Optional key/values to help link the card payment to an external system.",
+            "format": "json"
+           },
+           "description": {
+            "type": "string",
+            "description": "A short description of the payment."
+           }
+          }
+         }
+        }
+       }
+      },
+      "responses": {
+       "200": {
+        "description": "200",
+        "content": {
+         "application/json": {
+          "examples": {
+           "Bank Payment": {
+            "value": "{\n  \"object\": \"payment\",\n  \"id\": \"lery0alja5v6j8bp4nkpy19y\",\n  \"amount\": \"5000.00\",\n  \"currency\": \"USD\",\n  \"settlementAmount\": \"5000.00\",\n  \"settlementCurrency\": \"USD\",\n  \"sourceId\": \"6whpaa24mz35khmwec931l3i\",\n  \"sourceType\": \"Bank\",\n  \"datePosted\": \"2019-07-11T14:00:52.000Z\",\n  \"status\": \"posted\",\n  \"ownerId\": \"yxfxbcl6jjtjk57zv7t97i01\",\n  \"created\": \"2019-07-11T14:00:49.000Z\",\n  \"lastUpdated\": \"2019-07-11T14:00:52.000Z\",\n  \"payerId\": \"o62bdcp9dzdelc2bcudsru9l\",\n  \"payer\": {\n    \"object\": \"payer\",\n    \"id\": \"o62bdcp9dzdelc2bcudsru9l\",\n    \"name\": \"Christina C\",\n    \"email\": \"cchen+test@paystand.com\",\n    \"address\": {\n      \"object\": \"address\",\n      \"id\": \"wfhem0iqzhvij7u3ulalq1xk\",\n      \"street1\": \"41 Grandview St Unit C\",\n      \"city\": \"Santa Cruz\",\n      \"state\": \"CA\",\n      \"postalCode\": \"95060\",\n      \"country\": \"USA\",\n      \"status\": \"active\",\n      \"created\": \"2019-07-11T14:00:49.000Z\",\n      \"lastUpdated\": \"2019-07-11T14:00:50.000Z\"\n    },\n    \"ownerId\": \"yxfxbcl6jjtjk57zv7t97i01\",\n    \"status\": \"active\",\n    \"created\": \"2019-07-11T14:00:49.000Z\",\n    \"lastUpdated\": \"2019-07-11T14:00:50.000Z\"\n  },\n  \"source\": {\n    \"object\": \"bank\",\n    \"id\": \"6whpaa24mz35khmwec931l3i\",\n    \"accountType\": \"checking\",\n    \"bankName\": \"PayStand Test Bank\",\n    \"routingNumber\": \"110000000\",\n    \"nameOnAccount\": \"Jessica Lin\",\n    \"accountHolderType\": \"individual\",\n    \"currency\": \"USD\",\n    \"country\": \"USA\",\n    \"last4\": \"6789\",\n    \"fingerprint\": \"4cpw32i0hoz5iyhx7la194cy\",\n    \"isDefault\": true,\n    \"isApDefault\": false,\n    \"payerId\": \"o62bdcp9dzdelc2bcudsru9l\",\n    \"billingAddress\": {\n      \"object\": \"address\",\n      \"id\": \"pqb96kvax0f6m98x7nsxtrqy\",\n      \"street1\": \"payer street\",\n      \"city\": \"payer city\",\n      \"state\": \"CA\",\n      \"postalCode\": \"95060\",\n      \"country\": \"USA\",\n      \"status\": \"active\",\n      \"created\": \"2019-07-11T14:00:49.000Z\",\n      \"lastUpdated\": \"2019-07-11T14:00:50.000Z\"\n    },\n    \"externalId\": \"bank_001\",\n    \"dropped\": false,\n    \"verified\": false,\n    \"status\": \"active\",\n    \"created\": \"2019-07-11T14:00:49.000Z\",\n    \"lastUpdated\": \"2019-07-11T14:00:50.000Z\"\n  },\n  \"holds\": [\n    {\n      \"object\": \"hold\",\n      \"id\": \"4ygc3grvp2tuitay04kkjxu3\",\n      \"amount\": \"5000.00\",\n      \"currency\": \"USD\",\n      \"holdTime\": \"0\",\n      \"releaseDate\": \"2019-07-11T14:00:50.000Z\",\n      \"resourceId\": \"lery0alja5v6j8bp4nkpy19y\",\n      \"resourceType\": \"Payment\",\n      \"status\": \"active\",\n      \"created\": \"2019-07-11T14:00:50.000Z\",\n      \"lastUpdated\": \"2019-07-11T14:00:53.000Z\"\n    }\n  ],\n  \"accountKey\": \"default\",\n  \"accountId\": \"62k1nbxvolfhnpa9cwdm5yyb\",\n  \"balanceChangeId\": \"hbf6rj5k3brxpafyjp70w843\"\n}"
+           },
+           "Card Payment": {
+            "value": "{\n    \"object\": \"payment\",\n    \"id\": \"9yesqu33azwuj9ucb19jbpzf\",\n    \"amount\": \"5000.00\",\n    \"currency\": \"USD\",\n    \"settlementAmount\": \"5000.00\",\n    \"settlementCurrency\": \"USD\",\n    \"sourceId\": \"5fmqza1hcd4jhxb779r563u4\",\n    \"sourceType\": \"Card\",\n    \"datePosted\": \"2019-07-11T01:22:25.000Z\",\n    \"status\": \"posted\",\n    \"ownerId\": \"yxfxbcl6jjtjk57zv7t97i01\",\n    \"created\": \"2019-07-11T01:22:17.000Z\",\n    \"lastUpdated\": \"2019-07-11T01:22:25.000Z\",\n    \"payerId\": \"kn11g03xda1tpcnj7grdkemr\",\n    \"payer\": {\n        \"object\": \"payer\",\n        \"id\": \"kn11g03xda1tpcnj7grdkemr\",\n        \"name\": \"Christina C\",\n        \"email\": \"cchen+test@paystand.com\",\n        \"address\": {\n            \"object\": \"address\",\n            \"id\": \"3103bh03jc1kmzfmu1fqamhf\",\n            \"street1\": \"41 Grandview St Unit C\",\n            \"city\": \"Santa Cruz\",\n            \"state\": \"CA\",\n            \"postalCode\": \"95060\",\n            \"country\": \"USA\",\n            \"status\": \"active\",\n            \"created\": \"2019-07-11T01:22:17.000Z\",\n            \"lastUpdated\": \"2019-07-11T01:22:20.000Z\"\n        },\n        \"ownerId\": \"yxfxbcl6jjtjk57zv7t97i01\",\n        \"status\": \"active\",\n        \"created\": \"2019-07-11T01:22:17.000Z\",\n        \"lastUpdated\": \"2019-07-11T01:22:20.000Z\"\n    },\n    \"source\": {\n        \"object\": \"card\",\n        \"id\": \"5fmqza1hcd4jhxb779r563u4\",\n        \"nameOnCard\": \"Christopher\",\n        \"brand\": \"visa\",\n        \"last4\": \"0077\",\n        \"expirationMonth\": \"03\",\n        \"expirationYear\": \"2020\",\n        \"fingerprint\": \"eaxv50c91u5jlclyskgiszax\",\n        \"payerId\": \"kn11g03xda1tpcnj7grdkemr\",\n        \"billingAddress\": {\n            \"object\": \"address\",\n            \"id\": \"o7cp0nkeq0p8k27fz7mrvmtq\",\n            \"street1\": \"41 Grandview St Unit C\",\n            \"city\": \"Santa Cruz\",\n            \"state\": \"CA\",\n            \"postalCode\": \"95060\",\n            \"country\": \"USA\",\n            \"status\": \"active\",\n            \"created\": \"2019-07-11T01:22:17.000Z\",\n            \"lastUpdated\": \"2019-07-11T01:22:20.000Z\"\n        },\n        \"created\": \"2019-07-11T01:22:17.000Z\",\n        \"lastUpdated\": \"2019-07-11T01:22:20.000Z\",\n        \"status\": \"active\"\n    },\n    \"fees\": [\n        {\n            \"object\": \"fee\",\n            \"id\": \"vpzcx9l9s52yjfieoys7js8u\",\n            \"amount\": \"124.80\",\n            \"resourceAmount\": \"5000.00\",\n            \"currency\": \"USD\",\n            \"status\": \"active\",\n            \"created\": \"2019-07-11T01:22:20.000Z\",\n            \"lastUpdated\": \"2019-07-11T01:22:20.000Z\"\n        }\n    ],\n    \"holds\": [\n        {\n            \"object\": \"hold\",\n            \"id\": \"q3neanjs5fovk2m0nb70o6v4\",\n            \"amount\": \"5000.00\",\n            \"currency\": \"USD\",\n            \"holdTime\": \"0\",\n            \"releaseDate\": \"2019-07-11T01:22:20.000Z\",\n            \"resourceId\": \"9yesqu33azwuj9ucb19jbpzf\",\n            \"resourceType\": \"Payment\",\n            \"status\": \"active\",\n            \"created\": \"2019-07-11T01:22:20.000Z\",\n            \"lastUpdated\": \"2019-07-11T01:22:25.000Z\"\n        }\n    ],\n    \"accountKey\": \"default\",\n    \"accountId\": \"62k1nbxvolfhnpa9cwdm5yyb\",\n    \"balanceChangeId\": \"vq2v97o1yluyoc5mbkqwlkxk\"\n}"
+           }
+          },
+          "schema": {
+           "oneOf": [
+            {
+             "title": "Bank Payment",
+             "type": "object",
+             "properties": {
+              "object": {
+               "type": "string",
+               "example": "payment"
+              },
+              "id": {
+               "type": "string",
+               "example": "lery0alja5v6j8bp4nkpy19y"
+              },
+              "amount": {
+               "type": "string",
+               "example": "5000.00"
+              },
+              "currency": {
+               "type": "string",
+               "example": "USD"
+              },
+              "settlementAmount": {
+               "type": "string",
+               "example": "5000.00"
+              },
+              "settlementCurrency": {
+               "type": "string",
+               "example": "USD"
+              },
+              "sourceId": {
+               "type": "string",
+               "example": "6whpaa24mz35khmwec931l3i"
+              },
+              "sourceType": {
+               "type": "string",
+               "example": "Bank"
+              },
+              "datePosted": {
+               "type": "string",
+               "example": "2019-07-11T14:00:52.000Z"
+              },
+              "status": {
+               "type": "string",
+               "example": "posted"
+              },
+              "ownerId": {
+               "type": "string",
+               "example": "yxfxbcl6jjtjk57zv7t97i01"
+              },
+              "created": {
+               "type": "string",
+               "example": "2019-07-11T14:00:49.000Z"
+              },
+              "lastUpdated": {
+               "type": "string",
+               "example": "2019-07-11T14:00:52.000Z"
+              },
+              "payerId": {
+               "type": "string",
+               "example": "o62bdcp9dzdelc2bcudsru9l"
+              },
+              "payer": {
+               "type": "object",
+               "properties": {
+                "object": {
+                 "type": "string",
+                 "example": "payer"
+                },
+                "id": {
+                 "type": "string",
+                 "example": "o62bdcp9dzdelc2bcudsru9l"
+                },
+                "name": {
+                 "type": "string",
+                 "example": "Christina C"
+                },
+                "email": {
+                 "type": "string",
+                 "example": "cchen+test@paystand.com"
+                },
+                "address": {
+                 "type": "object",
+                 "properties": {
+                  "object": {
+                   "type": "string",
+                   "example": "address"
+                  },
+                  "id": {
+                   "type": "string",
+                   "example": "wfhem0iqzhvij7u3ulalq1xk"
+                  },
+                  "street1": {
+                   "type": "string",
+                   "example": "41 Grandview St Unit C"
+                  },
+                  "city": {
+                   "type": "string",
+                   "example": "Santa Cruz"
+                  },
+                  "state": {
+                   "type": "string",
+                   "example": "CA"
+                  },
+                  "postalCode": {
+                   "type": "string",
+                   "example": "95060"
+                  },
+                  "country": {
+                   "type": "string",
+                   "example": "USA"
+                  },
+                  "status": {
+                   "type": "string",
+                   "example": "active"
+                  },
+                  "created": {
+                   "type": "string",
+                   "example": "2019-07-11T14:00:49.000Z"
+                  },
+                  "lastUpdated": {
+                   "type": "string",
+                   "example": "2019-07-11T14:00:50.000Z"
+                  }
+                 }
+                },
+                "ownerId": {
+                 "type": "string",
+                 "example": "yxfxbcl6jjtjk57zv7t97i01"
+                },
+                "status": {
+                 "type": "string",
+                 "example": "active"
+                },
+                "created": {
+                 "type": "string",
+                 "example": "2019-07-11T14:00:49.000Z"
+                },
+                "lastUpdated": {
+                 "type": "string",
+                 "example": "2019-07-11T14:00:50.000Z"
+                }
+               }
+              },
+              "source": {
+               "type": "object",
+               "properties": {
+                "object": {
+                 "type": "string",
+                 "example": "bank"
+                },
+                "id": {
+                 "type": "string",
+                 "example": "6whpaa24mz35khmwec931l3i"
+                },
+                "accountType": {
+                 "type": "string",
+                 "example": "checking"
+                },
+                "bankName": {
+                 "type": "string",
+                 "example": "PayStand Test Bank"
+                },
+                "routingNumber": {
+                 "type": "string",
+                 "example": "110000000"
+                },
+                "nameOnAccount": {
+                 "type": "string",
+                 "example": "Jessica Lin"
+                },
+                "accountHolderType": {
+                 "type": "string",
+                 "example": "individual"
+                },
+                "currency": {
+                 "type": "string",
+                 "example": "USD"
+                },
+                "country": {
+                 "type": "string",
+                 "example": "USA"
+                },
+                "last4": {
+                 "type": "string",
+                 "example": "6789"
+                },
+                "fingerprint": {
+                 "type": "string",
+                 "example": "4cpw32i0hoz5iyhx7la194cy"
+                },
+                "isDefault": {
+                 "type": "boolean",
+                 "example": true,
+                 "default": true
+                },
+                "isApDefault": {
+                 "type": "boolean",
+                 "example": false,
+                 "default": true
+                },
+                "payerId": {
+                 "type": "string",
+                 "example": "o62bdcp9dzdelc2bcudsru9l"
+                },
+                "billingAddress": {
+                 "type": "object",
+                 "properties": {
+                  "object": {
+                   "type": "string",
+                   "example": "address"
+                  },
+                  "id": {
+                   "type": "string",
+                   "example": "pqb96kvax0f6m98x7nsxtrqy"
+                  },
+                  "street1": {
+                   "type": "string",
+                   "example": "payer street"
+                  },
+                  "city": {
+                   "type": "string",
+                   "example": "payer city"
+                  },
+                  "state": {
+                   "type": "string",
+                   "example": "CA"
+                  },
+                  "postalCode": {
+                   "type": "string",
+                   "example": "95060"
+                  },
+                  "country": {
+                   "type": "string",
+                   "example": "USA"
+                  },
+                  "status": {
+                   "type": "string",
+                   "example": "active"
+                  },
+                  "created": {
+                   "type": "string",
+                   "example": "2019-07-11T14:00:49.000Z"
+                  },
+                  "lastUpdated": {
+                   "type": "string",
+                   "example": "2019-07-11T14:00:50.000Z"
+                  }
+                 }
+                },
+                "externalId": {
+                 "type": "string",
+                 "example": "bank_001"
+                },
+                "dropped": {
+                 "type": "boolean",
+                 "example": false,
+                 "default": true
+                },
+                "verified": {
+                 "type": "boolean",
+                 "example": false,
+                 "default": true
+                },
+                "status": {
+                 "type": "string",
+                 "example": "active"
+                },
+                "created": {
+                 "type": "string",
+                 "example": "2019-07-11T14:00:49.000Z"
+                },
+                "lastUpdated": {
+                 "type": "string",
+                 "example": "2019-07-11T14:00:50.000Z"
+                }
+               }
+              },
+              "holds": {
+               "type": "array",
+               "items": {
+                "type": "object",
+                "properties": {
+                 "object": {
+                  "type": "string",
+                  "example": "hold"
+                 },
+                 "id": {
+                  "type": "string",
+                  "example": "4ygc3grvp2tuitay04kkjxu3"
+                 },
+                 "amount": {
+                  "type": "string",
+                  "example": "5000.00"
+                 },
+                 "currency": {
+                  "type": "string",
+                  "example": "USD"
+                 },
+                 "holdTime": {
+                  "type": "string",
+                  "example": "0"
+                 },
+                 "releaseDate": {
+                  "type": "string",
+                  "example": "2019-07-11T14:00:50.000Z"
+                 },
+                 "resourceId": {
+                  "type": "string",
+                  "example": "lery0alja5v6j8bp4nkpy19y"
+                 },
+                 "resourceType": {
+                  "type": "string",
+                  "example": "Payment"
+                 },
+                 "status": {
+                  "type": "string",
+                  "example": "active"
+                 },
+                 "created": {
+                  "type": "string",
+                  "example": "2019-07-11T14:00:50.000Z"
+                 },
+                 "lastUpdated": {
+                  "type": "string",
+                  "example": "2019-07-11T14:00:53.000Z"
+                 }
+                }
+               }
+              },
+              "accountKey": {
+               "type": "string",
+               "example": "default"
+              },
+              "accountId": {
+               "type": "string",
+               "example": "62k1nbxvolfhnpa9cwdm5yyb"
+              },
+              "balanceChangeId": {
+               "type": "string",
+               "example": "hbf6rj5k3brxpafyjp70w843"
+              }
+             }
+            },
+            {
+             "title": "Card Payment",
+             "type": "object",
+             "properties": {
+              "object": {
+               "type": "string",
+               "example": "payment"
+              },
+              "id": {
+               "type": "string",
+               "example": "9yesqu33azwuj9ucb19jbpzf"
+              },
+              "amount": {
+               "type": "string",
+               "example": "5000.00"
+              },
+              "currency": {
+               "type": "string",
+               "example": "USD"
+              },
+              "settlementAmount": {
+               "type": "string",
+               "example": "5000.00"
+              },
+              "settlementCurrency": {
+               "type": "string",
+               "example": "USD"
+              },
+              "sourceId": {
+               "type": "string",
+               "example": "5fmqza1hcd4jhxb779r563u4"
+              },
+              "sourceType": {
+               "type": "string",
+               "example": "Card"
+              },
+              "datePosted": {
+               "type": "string",
+               "example": "2019-07-11T01:22:25.000Z"
+              },
+              "status": {
+               "type": "string",
+               "example": "posted"
+              },
+              "ownerId": {
+               "type": "string",
+               "example": "yxfxbcl6jjtjk57zv7t97i01"
+              },
+              "created": {
+               "type": "string",
+               "example": "2019-07-11T01:22:17.000Z"
+              },
+              "lastUpdated": {
+               "type": "string",
+               "example": "2019-07-11T01:22:25.000Z"
+              },
+              "payerId": {
+               "type": "string",
+               "example": "kn11g03xda1tpcnj7grdkemr"
+              },
+              "payer": {
+               "type": "object",
+               "properties": {
+                "object": {
+                 "type": "string",
+                 "example": "payer"
+                },
+                "id": {
+                 "type": "string",
+                 "example": "kn11g03xda1tpcnj7grdkemr"
+                },
+                "name": {
+                 "type": "string",
+                 "example": "Christina C"
+                },
+                "email": {
+                 "type": "string",
+                 "example": "cchen+test@paystand.com"
+                },
+                "address": {
+                 "type": "object",
+                 "properties": {
+                  "object": {
+                   "type": "string",
+                   "example": "address"
+                  },
+                  "id": {
+                   "type": "string",
+                   "example": "3103bh03jc1kmzfmu1fqamhf"
+                  },
+                  "street1": {
+                   "type": "string",
+                   "example": "41 Grandview St Unit C"
+                  },
+                  "city": {
+                   "type": "string",
+                   "example": "Santa Cruz"
+                  },
+                  "state": {
+                   "type": "string",
+                   "example": "CA"
+                  },
+                  "postalCode": {
+                   "type": "string",
+                   "example": "95060"
+                  },
+                  "country": {
+                   "type": "string",
+                   "example": "USA"
+                  },
+                  "status": {
+                   "type": "string",
+                   "example": "active"
+                  },
+                  "created": {
+                   "type": "string",
+                   "example": "2019-07-11T01:22:17.000Z"
+                  },
+                  "lastUpdated": {
+                   "type": "string",
+                   "example": "2019-07-11T01:22:20.000Z"
+                  }
+                 }
+                },
+                "ownerId": {
+                 "type": "string",
+                 "example": "yxfxbcl6jjtjk57zv7t97i01"
+                },
+                "status": {
+                 "type": "string",
+                 "example": "active"
+                },
+                "created": {
+                 "type": "string",
+                 "example": "2019-07-11T01:22:17.000Z"
+                },
+                "lastUpdated": {
+                 "type": "string",
+                 "example": "2019-07-11T01:22:20.000Z"
+                }
+               }
+              },
+              "source": {
+               "type": "object",
+               "properties": {
+                "object": {
+                 "type": "string",
+                 "example": "card"
+                },
+                "id": {
+                 "type": "string",
+                 "example": "5fmqza1hcd4jhxb779r563u4"
+                },
+                "nameOnCard": {
+                 "type": "string",
+                 "example": "Christopher"
+                },
+                "brand": {
+                 "type": "string",
+                 "example": "visa"
+                },
+                "last4": {
+                 "type": "string",
+                 "example": "0077"
+                },
+                "expirationMonth": {
+                 "type": "string",
+                 "example": "03"
+                },
+                "expirationYear": {
+                 "type": "string",
+                 "example": "2020"
+                },
+                "fingerprint": {
+                 "type": "string",
+                 "example": "eaxv50c91u5jlclyskgiszax"
+                },
+                "payerId": {
+                 "type": "string",
+                 "example": "kn11g03xda1tpcnj7grdkemr"
+                },
+                "billingAddress": {
+                 "type": "object",
+                 "properties": {
+                  "object": {
+                   "type": "string",
+                   "example": "address"
+                  },
+                  "id": {
+                   "type": "string",
+                   "example": "o7cp0nkeq0p8k27fz7mrvmtq"
+                  },
+                  "street1": {
+                   "type": "string",
+                   "example": "41 Grandview St Unit C"
+                  },
+                  "city": {
+                   "type": "string",
+                   "example": "Santa Cruz"
+                  },
+                  "state": {
+                   "type": "string",
+                   "example": "CA"
+                  },
+                  "postalCode": {
+                   "type": "string",
+                   "example": "95060"
+                  },
+                  "country": {
+                   "type": "string",
+                   "example": "USA"
+                  },
+                  "status": {
+                   "type": "string",
+                   "example": "active"
+                  },
+                  "created": {
+                   "type": "string",
+                   "example": "2019-07-11T01:22:17.000Z"
+                  },
+                  "lastUpdated": {
+                   "type": "string",
+                   "example": "2019-07-11T01:22:20.000Z"
+                  }
+                 }
+                },
+                "created": {
+                 "type": "string",
+                 "example": "2019-07-11T01:22:17.000Z"
+                },
+                "lastUpdated": {
+                 "type": "string",
+                 "example": "2019-07-11T01:22:20.000Z"
+                },
+                "status": {
+                 "type": "string",
+                 "example": "active"
+                }
+               }
+              },
+              "fees": {
+               "type": "array",
+               "items": {
+                "type": "object",
+                "properties": {
+                 "object": {
+                  "type": "string",
+                  "example": "fee"
+                 },
+                 "id": {
+                  "type": "string",
+                  "example": "vpzcx9l9s52yjfieoys7js8u"
+                 },
+                 "amount": {
+                  "type": "string",
+                  "example": "124.80"
+                 },
+                 "resourceAmount": {
+                  "type": "string",
+                  "example": "5000.00"
+                 },
+                 "currency": {
+                  "type": "string",
+                  "example": "USD"
+                 },
+                 "status": {
+                  "type": "string",
+                  "example": "active"
+                 },
+                 "created": {
+                  "type": "string",
+                  "example": "2019-07-11T01:22:20.000Z"
+                 },
+                 "lastUpdated": {
+                  "type": "string",
+                  "example": "2019-07-11T01:22:20.000Z"
+                 }
+                }
+               }
+              },
+              "holds": {
+               "type": "array",
+               "items": {
+                "type": "object",
+                "properties": {
+                 "object": {
+                  "type": "string",
+                  "example": "hold"
+                 },
+                 "id": {
+                  "type": "string",
+                  "example": "q3neanjs5fovk2m0nb70o6v4"
+                 },
+                 "amount": {
+                  "type": "string",
+                  "example": "5000.00"
+                 },
+                 "currency": {
+                  "type": "string",
+                  "example": "USD"
+                 },
+                 "holdTime": {
+                  "type": "string",
+                  "example": "0"
+                 },
+                 "releaseDate": {
+                  "type": "string",
+                  "example": "2019-07-11T01:22:20.000Z"
+                 },
+                 "resourceId": {
+                  "type": "string",
+                  "example": "9yesqu33azwuj9ucb19jbpzf"
+                 },
+                 "resourceType": {
+                  "type": "string",
+                  "example": "Payment"
+                 },
+                 "status": {
+                  "type": "string",
+                  "example": "active"
+                 },
+                 "created": {
+                  "type": "string",
+                  "example": "2019-07-11T01:22:20.000Z"
+                 },
+                 "lastUpdated": {
+                  "type": "string",
+                  "example": "2019-07-11T01:22:25.000Z"
+                 }
+                }
+               }
+              },
+              "accountKey": {
+               "type": "string",
+               "example": "default"
+              },
+              "accountId": {
+               "type": "string",
+               "example": "62k1nbxvolfhnpa9cwdm5yyb"
+              },
+              "balanceChangeId": {
+               "type": "string",
+               "example": "vq2v97o1yluyoc5mbkqwlkxk"
+              }
+             }
+            }
+           ]
+          }
+         }
+        }
+       }
+      },
+      "deprecated": false
+     }
+    }
+   },
+   "x-readme": {
+    "headers": [],
+    "explorer-enabled": true,
+    "proxy-enabled": true
+   },
+   "x-readme-fauxas": true,
+   "_id": "5e9e175f080ddd0012148b8b:5e90bf59e3354c005a756eab"
+  }
+ },
+ {
+  "page": "https://developers.paystand.com/reference/get-all-payments.md",
+  "definition": {
+   "openapi": "3.1.0",
+   "info": {
+    "title": "Sandbox Secure API",
+    "version": "3.2.1"
+   },
+   "servers": [
+    {
+     "url": "https://api.paystand.co/v3"
+    }
+   ],
+   "components": {
+    "securitySchemes": {
+     "sec0": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-CUSTOMER-ID",
+      "x-default": "axjf9rjo9o6ojp5kcya7vle0"
+     },
+     "sec1": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "x-bearer-format": "bearer",
+      "x-default": "zGwAN7EfU9HYsGlcIQGGBKZ75Xug1Zdy"
+     },
+     "sec2": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Accept",
+      "x-default": "application/json"
+     },
+     "sec3": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Content-Type",
+      "x-default": "application/json"
+     }
+    }
+   },
+   "security": [
+    {
+     "sec0": [],
+     "sec1": [],
+     "sec2": [],
+     "sec3": []
+    }
+   ],
+   "paths": {
+    "/payments/all": {
+     "get": {
+      "summary": "List all payments",
+      "description": "Returns a list of all payments you’ve previously created. The payments are returned in sorted order, with the most recent refunds appearing first. For convenience, pagination is available with the limit and offset parameters.",
+      "operationId": "get-all-payments",
+      "parameters": [
+       {
+        "name": "startDate",
+        "in": "query",
+        "description": "Filters the list based on the object \"created\" field, will return records whose created date is greater than or equal to the startDate.",
+        "schema": {
+         "type": "string",
+         "format": "date",
+         "default": "2014-01-01"
+        }
+       },
+       {
+        "name": "endDate",
+        "in": "query",
+        "description": "Filters the list based on the object \"created\" field, will return records whose created date is less than or equal to the endDate.",
+        "schema": {
+         "type": "string",
+         "format": "date",
+         "default": "2020-02-02"
+        }
+       },
+       {
+        "name": "format",
+        "in": "query",
+        "description": "Defines how data should be return, accepted values: [\"json\", \"csv\"]",
+        "schema": {
+         "type": "string",
+         "default": "json"
+        }
+       },
+       {
+        "name": "offset",
+        "in": "query",
+        "description": "Use for pagination, how many records should the query skip",
+        "schema": {
+         "type": "integer",
+         "format": "int32",
+         "default": 0
+        }
+       },
+       {
+        "name": "limit",
+        "in": "query",
+        "description": "Defines how many values should it return, accepted value range between 1 and 200",
+        "schema": {
+         "type": "integer",
+         "format": "int32",
+         "default": 50
+        }
+       }
+      ],
+      "responses": {
+       "200": {
+        "description": "200",
+        "content": {
+         "application/json": {
+          "examples": {
+           "Result": {
+            "value": "{ \n   \"results\":[ \n      { \n         \"object\":\"payment\",\n         \"id\":\"rurl2jp2p31djxm6tg8f7ezh\",\n         \"amount\":\"5000.00\",\n         \"currency\":\"USD\",\n         \"settlementAmount\":\"5000.00\",\n         \"settlementCurrency\":\"USD\",\n         \"externalId\":\"pay01\",\n         \"sourceId\":\"6whpaa24mz35khmwec931l3i\",\n         \"sourceType\":\"Bank\",\n         \"datePosted\":\"2019-07-11T14:05:48.000Z\",\n         \"status\":\"posted\",\n         \"ownerId\":\"yxfxbcl6jjtjk57zv7t97i01\",\n         \"created\":\"2019-07-11T14:05:47.000Z\",\n         \"lastUpdated\":\"2019-07-11T14:05:48.000Z\",\n         \"payerId\":\"o62bdcp9dzdelc2bcudsru9l\",\n         \"payer\":{ \n            \"object\":\"payer\",\n            \"id\":\"o62bdcp9dzdelc2bcudsru9l\",\n            \"name\":\"Christina C\",\n            \"email\":\"cchen+test@paystand.com\",\n            \"address\":{ \n               \"object\":\"address\",\n               \"id\":\"wfhem0iqzhvij7u3ulalq1xk\",\n               \"street1\":\"41 Grandview St Unit C\",\n               \"city\":\"Santa Cruz\",\n               \"state\":\"CA\",\n               \"postalCode\":\"95060\",\n               \"country\":\"USA\",\n               \"status\":\"active\",\n               \"created\":\"2019-07-11T14:00:49.000Z\",\n               \"lastUpdated\":\"2019-07-11T14:00:50.000Z\"\n            },\n            \"ownerId\":\"yxfxbcl6jjtjk57zv7t97i01\",\n            \"status\":\"active\",\n            \"created\":\"2019-07-11T14:00:49.000Z\",\n            \"lastUpdated\":\"2019-07-11T14:00:50.000Z\"\n         },\n         \"source\":{ \n            \"object\":\"bank\",\n            \"id\":\"6whpaa24mz35khmwec931l3i\",\n            \"accountType\":\"checking\",\n            \"bankName\":\"PayStand Test Bank\",\n            \"routingNumber\":\"110000000\",\n            \"nameOnAccount\":\"Jessica Lin\",\n            \"accountHolderType\":\"individual\",\n            \"currency\":\"USD\",\n            \"country\":\"USA\",\n            \"last4\":\"6789\",\n            \"fingerprint\":\"4cpw32i0hoz5iyhx7la194cy\",\n            \"isDefault\":true,\n            \"isApDefault\":false,\n            \"payerId\":\"o62bdcp9dzdelc2bcudsru9l\",\n            \"billingAddress\":{ \n               \"object\":\"address\",\n               \"id\":\"pqb96kvax0f6m98x7nsxtrqy\",\n               \"street1\":\"payer street\",\n               \"city\":\"payer city\",\n               \"state\":\"CA\",\n               \"postalCode\":\"95060\",\n               \"country\":\"USA\",\n               \"status\":\"active\",\n               \"created\":\"2019-07-11T14:00:49.000Z\",\n               \"lastUpdated\":\"2019-07-11T14:00:50.000Z\"\n            },\n            \"externalId\":\"bank_001\",\n            \"dropped\":false,\n            \"verified\":false,\n            \"status\":\"active\",\n            \"created\":\"2019-07-11T14:00:49.000Z\",\n            \"lastUpdated\":\"2019-07-11T14:00:50.000Z\"\n         },\n         \"holds\":[ \n            { \n               \"object\":\"hold\",\n               \"id\":\"d2ha1b1r5mnrmt2pec63scy7\",\n               \"amount\":\"5000.00\",\n               \"currency\":\"USD\",\n               \"holdTime\":\"0\",\n               \"releaseDate\":\"2019-07-11T14:05:47.000Z\",\n               \"resourceId\":\"rurl2jp2p31djxm6tg8f7ezh\",\n               \"resourceType\":\"Payment\",\n               \"status\":\"active\",\n               \"created\":\"2019-07-11T14:05:47.000Z\",\n               \"lastUpdated\":\"2019-07-11T14:05:50.000Z\"\n            }\n         ],\n         \"customValues\":[ \n            { \n               \"object\":\"customValue\",\n               \"id\":\"883oomcc7le9qg0oh0srqp24\",\n               \"fieldValue\":\"Paystand\",\n               \"customField\":{ \n                  \"id\":\"iu2ogmdxfiucld9lycdwjul1\",\n                  \"fieldName\":\"What is you name\",\n                  \"fieldKey\":\"whatIsYourName\"\n               },\n               \"resourceId\":\"lery0alja5v6j8bp4nkpy19y\",\n               \"resourceType\":\"Payment\",\n               \"status\":\"active\",\n               \"created\":\"2019-12-30T17:28:53.000Z\",\n               \"lastUpdated\":\"2019-12-30T17:28:53.000Z\"\n            }\n         ],\n         \"accountKey\":\"default\",\n         \"accountId\":\"62k1nbxvolfhnpa9cwdm5yyb\",\n         \"balanceChangeId\":\"r60o4j28dtoznctp4sy3rhpm\"\n      }\n   ],\n   \"count\":1,\n   \"settings\":{ \n      \"limit\":50,\n      \"offset\":0,\n      \"order\":\"created DESC\"\n   }\n}"
+           }
+          },
+          "schema": {
+           "type": "object",
+           "properties": {
+            "results": {
+             "type": "array",
+             "items": {
+              "type": "object",
+              "properties": {
+               "object": {
+                "type": "string",
+                "example": "payment"
+               },
+               "id": {
+                "type": "string",
+                "example": "rurl2jp2p31djxm6tg8f7ezh"
+               },
+               "amount": {
+                "type": "string",
+                "example": "5000.00"
+               },
+               "currency": {
+                "type": "string",
+                "example": "USD"
+               },
+               "settlementAmount": {
+                "type": "string",
+                "example": "5000.00"
+               },
+               "settlementCurrency": {
+                "type": "string",
+                "example": "USD"
+               },
+               "externalId": {
+                "type": "string",
+                "example": "pay01"
+               },
+               "sourceId": {
+                "type": "string",
+                "example": "6whpaa24mz35khmwec931l3i"
+               },
+               "sourceType": {
+                "type": "string",
+                "example": "Bank"
+               },
+               "datePosted": {
+                "type": "string",
+                "example": "2019-07-11T14:05:48.000Z"
+               },
+               "status": {
+                "type": "string",
+                "example": "posted"
+               },
+               "ownerId": {
+                "type": "string",
+                "example": "yxfxbcl6jjtjk57zv7t97i01"
+               },
+               "created": {
+                "type": "string",
+                "example": "2019-07-11T14:05:47.000Z"
+               },
+               "lastUpdated": {
+                "type": "string",
+                "example": "2019-07-11T14:05:48.000Z"
+               },
+               "payerId": {
+                "type": "string",
+                "example": "o62bdcp9dzdelc2bcudsru9l"
+               },
+               "payer": {
+                "type": "object",
+                "properties": {
+                 "object": {
+                  "type": "string",
+                  "example": "payer"
+                 },
+                 "id": {
+                  "type": "string",
+                  "example": "o62bdcp9dzdelc2bcudsru9l"
+                 },
+                 "name": {
+                  "type": "string",
+                  "example": "Christina C"
+                 },
+                 "email": {
+                  "type": "string",
+                  "example": "cchen+test@paystand.com"
+                 },
+                 "address": {
+                  "type": "object",
+                  "properties": {
+                   "object": {
+                    "type": "string",
+                    "example": "address"
+                   },
+                   "id": {
+                    "type": "string",
+                    "example": "wfhem0iqzhvij7u3ulalq1xk"
+                   },
+                   "street1": {
+                    "type": "string",
+                    "example": "41 Grandview St Unit C"
+                   },
+                   "city": {
+                    "type": "string",
+                    "example": "Santa Cruz"
+                   },
+                   "state": {
+                    "type": "string",
+                    "example": "CA"
+                   },
+                   "postalCode": {
+                    "type": "string",
+                    "example": "95060"
+                   },
+                   "country": {
+                    "type": "string",
+                    "example": "USA"
+                   },
+                   "status": {
+                    "type": "string",
+                    "example": "active"
+                   },
+                   "created": {
+                    "type": "string",
+                    "example": "2019-07-11T14:00:49.000Z"
+                   },
+                   "lastUpdated": {
+                    "type": "string",
+                    "example": "2019-07-11T14:00:50.000Z"
+                   }
+                  }
+                 },
+                 "ownerId": {
+                  "type": "string",
+                  "example": "yxfxbcl6jjtjk57zv7t97i01"
+                 },
+                 "status": {
+                  "type": "string",
+                  "example": "active"
+                 },
+                 "created": {
+                  "type": "string",
+                  "example": "2019-07-11T14:00:49.000Z"
+                 },
+                 "lastUpdated": {
+                  "type": "string",
+                  "example": "2019-07-11T14:00:50.000Z"
+                 }
+                }
+               },
+               "source": {
+                "type": "object",
+                "properties": {
+                 "object": {
+                  "type": "string",
+                  "example": "bank"
+                 },
+                 "id": {
+                  "type": "string",
+                  "example": "6whpaa24mz35khmwec931l3i"
+                 },
+                 "accountType": {
+                  "type": "string",
+                  "example": "checking"
+                 },
+                 "bankName": {
+                  "type": "string",
+                  "example": "PayStand Test Bank"
+                 },
+                 "routingNumber": {
+                  "type": "string",
+                  "example": "110000000"
+                 },
+                 "nameOnAccount": {
+                  "type": "string",
+                  "example": "Jessica Lin"
+                 },
+                 "accountHolderType": {
+                  "type": "string",
+                  "example": "individual"
+                 },
+                 "currency": {
+                  "type": "string",
+                  "example": "USD"
+                 },
+                 "country": {
+                  "type": "string",
+                  "example": "USA"
+                 },
+                 "last4": {
+                  "type": "string",
+                  "example": "6789"
+                 },
+                 "fingerprint": {
+                  "type": "string",
+                  "example": "4cpw32i0hoz5iyhx7la194cy"
+                 },
+                 "isDefault": {
+                  "type": "boolean",
+                  "example": true,
+                  "default": true
+                 },
+                 "isApDefault": {
+                  "type": "boolean",
+                  "example": false,
+                  "default": true
+                 },
+                 "payerId": {
+                  "type": "string",
+                  "example": "o62bdcp9dzdelc2bcudsru9l"
+                 },
+                 "billingAddress": {
+                  "type": "object",
+                  "properties": {
+                   "object": {
+                    "type": "string",
+                    "example": "address"
+                   },
+                   "id": {
+                    "type": "string",
+                    "example": "pqb96kvax0f6m98x7nsxtrqy"
+                   },
+                   "street1": {
+                    "type": "string",
+                    "example": "payer street"
+                   },
+                   "city": {
+                    "type": "string",
+                    "example": "payer city"
+                   },
+                   "state": {
+                    "type": "string",
+                    "example": "CA"
+                   },
+                   "postalCode": {
+                    "type": "string",
+                    "example": "95060"
+                   },
+                   "country": {
+                    "type": "string",
+                    "example": "USA"
+                   },
+                   "status": {
+                    "type": "string",
+                    "example": "active"
+                   },
+                   "created": {
+                    "type": "string",
+                    "example": "2019-07-11T14:00:49.000Z"
+                   },
+                   "lastUpdated": {
+                    "type": "string",
+                    "example": "2019-07-11T14:00:50.000Z"
+                   }
+                  }
+                 },
+                 "externalId": {
+                  "type": "string",
+                  "example": "bank_001"
+                 },
+                 "dropped": {
+                  "type": "boolean",
+                  "example": false,
+                  "default": true
+                 },
+                 "verified": {
+                  "type": "boolean",
+                  "example": false,
+                  "default": true
+                 },
+                 "status": {
+                  "type": "string",
+                  "example": "active"
+                 },
+                 "created": {
+                  "type": "string",
+                  "example": "2019-07-11T14:00:49.000Z"
+                 },
+                 "lastUpdated": {
+                  "type": "string",
+                  "example": "2019-07-11T14:00:50.000Z"
+                 }
+                }
+               },
+               "holds": {
+                "type": "array",
+                "items": {
+                 "type": "object",
+                 "properties": {
+                  "object": {
+                   "type": "string",
+                   "example": "hold"
+                  },
+                  "id": {
+                   "type": "string",
+                   "example": "d2ha1b1r5mnrmt2pec63scy7"
+                  },
+                  "amount": {
+                   "type": "string",
+                   "example": "5000.00"
+                  },
+                  "currency": {
+                   "type": "string",
+                   "example": "USD"
+                  },
+                  "holdTime": {
+                   "type": "string",
+                   "example": "0"
+                  },
+                  "releaseDate": {
+                   "type": "string",
+                   "example": "2019-07-11T14:05:47.000Z"
+                  },
+                  "resourceId": {
+                   "type": "string",
+                   "example": "rurl2jp2p31djxm6tg8f7ezh"
+                  },
+                  "resourceType": {
+                   "type": "string",
+                   "example": "Payment"
+                  },
+                  "status": {
+                   "type": "string",
+                   "example": "active"
+                  },
+                  "created": {
+                   "type": "string",
+                   "example": "2019-07-11T14:05:47.000Z"
+                  },
+                  "lastUpdated": {
+                   "type": "string",
+                   "example": "2019-07-11T14:05:50.000Z"
+                  }
+                 }
+                }
+               },
+               "customValues": {
+                "type": "array",
+                "items": {
+                 "type": "object",
+                 "properties": {
+                  "object": {
+                   "type": "string",
+                   "example": "customValue"
+                  },
+                  "id": {
+                   "type": "string",
+                   "example": "883oomcc7le9qg0oh0srqp24"
+                  },
+                  "fieldValue": {
+                   "type": "string",
+                   "example": "Paystand"
+                  },
+                  "customField": {
+                   "type": "object",
+                   "properties": {
+                    "id": {
+                     "type": "string",
+                     "example": "iu2ogmdxfiucld9lycdwjul1"
+                    },
+                    "fieldName": {
+                     "type": "string",
+                     "example": "What is you name"
+                    },
+                    "fieldKey": {
+                     "type": "string",
+                     "example": "whatIsYourName"
+                    }
+                   }
+                  },
+                  "resourceId": {
+                   "type": "string",
+                   "example": "lery0alja5v6j8bp4nkpy19y"
+                  },
+                  "resourceType": {
+                   "type": "string",
+                   "example": "Payment"
+                  },
+                  "status": {
+                   "type": "string",
+                   "example": "active"
+                  },
+                  "created": {
+                   "type": "string",
+                   "example": "2019-12-30T17:28:53.000Z"
+                  },
+                  "lastUpdated": {
+                   "type": "string",
+                   "example": "2019-12-30T17:28:53.000Z"
+                  }
+                 }
+                }
+               },
+               "accountKey": {
+                "type": "string",
+                "example": "default"
+               },
+               "accountId": {
+                "type": "string",
+                "example": "62k1nbxvolfhnpa9cwdm5yyb"
+               },
+               "balanceChangeId": {
+                "type": "string",
+                "example": "r60o4j28dtoznctp4sy3rhpm"
+               }
+              }
+             }
+            },
+            "count": {
+             "type": "integer",
+             "example": 1,
+             "default": 0
+            },
+            "settings": {
+             "type": "object",
+             "properties": {
+              "limit": {
+               "type": "integer",
+               "example": 50,
+               "default": 0
+              },
+              "offset": {
+               "type": "integer",
+               "example": 0,
+               "default": 0
+              },
+              "order": {
+               "type": "string",
+               "example": "created DESC"
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "deprecated": false
+     }
+    }
+   },
+   "x-readme": {
+    "headers": [],
+    "explorer-enabled": true,
+    "proxy-enabled": true
+   },
+   "x-readme-fauxas": true,
+   "_id": "5e9e175f080ddd0012148b8b:5e90bf59e3354c005a756f8a"
+  }
+ },
+ {
+  "page": "https://developers.paystand.com/reference/list-all-refunds.md",
+  "definition": {
+   "openapi": "3.1.0",
+   "info": {
+    "title": "Sandbox Secure API",
+    "version": "3.2.1"
+   },
+   "servers": [
+    {
+     "url": "https://api.paystand.co/v3"
+    }
+   ],
+   "components": {
+    "securitySchemes": {
+     "sec0": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-CUSTOMER-ID",
+      "x-default": "axjf9rjo9o6ojp5kcya7vle0"
+     },
+     "sec1": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "x-bearer-format": "bearer",
+      "x-default": "zGwAN7EfU9HYsGlcIQGGBKZ75Xug1Zdy"
+     },
+     "sec2": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Accept",
+      "x-default": "application/json"
+     },
+     "sec3": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Content-Type",
+      "x-default": "application/json"
+     }
+    }
+   },
+   "security": [
+    {
+     "sec0": [],
+     "sec1": [],
+     "sec2": [],
+     "sec3": []
+    }
+   ],
+   "paths": {
+    "/refunds/all": {
+     "get": {
+      "summary": "List all refunds",
+      "description": "Returns a list of all refunds you’ve previously created. The refunds are returned in sorted order, with the most recent refunds appearing first. For convenience, pagination is available with the limit and offset parameters.",
+      "operationId": "list-all-refunds",
+      "parameters": [
+       {
+        "name": "startDate",
+        "in": "query",
+        "description": "Filters the list based on the object \"created\" field, will return records whose created date is greater than or equal to the startDate.",
+        "schema": {
+         "type": "string",
+         "format": "date",
+         "default": "2014-01-01"
+        }
+       },
+       {
+        "name": "endDate",
+        "in": "query",
+        "description": "Filters the list based on the object \"created\" field, will return records whose created date is less than or equal to the endDate.",
+        "schema": {
+         "type": "string",
+         "format": "date",
+         "default": "2020-02-02"
+        }
+       },
+       {
+        "name": "format",
+        "in": "query",
+        "description": "Defines how data should be return, accepted values: [\"json\", \"csv\"]",
+        "schema": {
+         "type": "string",
+         "default": "json"
+        }
+       },
+       {
+        "name": "offset",
+        "in": "query",
+        "description": "Use for pagination, how many records should the query skip",
+        "schema": {
+         "type": "integer",
+         "format": "int32",
+         "default": 0
+        }
+       },
+       {
+        "name": "limit",
+        "in": "query",
+        "description": "Defines how many values should it return, accepted value range between 1 and 200",
+        "schema": {
+         "type": "integer",
+         "format": "int32",
+         "default": 50
+        }
+       }
+      ],
+      "responses": {
+       "200": {
+        "description": "200",
+        "content": {
+         "application/json": {
+          "examples": {
+           "Result": {
+            "value": "{ \n   \"results\":[ \n      { \n         \"object\":\"refund\",\n         \"id\":\"r5asl6ygfew3k47ixztdfka1\",\n         \"amount\":\"20.00\",\n         \"currency\":\"USD\",\n         \"settlementAmount\":\"20.00\",\n         \"settlementCurrency\":\"USD\",\n         \"paymentId\":\"e26pqmpubmlsmqak7d93vpnc\",\n         \"balanceChangeId\":\"a16609a00d5943aab4408b9b\",\n         \"description\":\"A description for the refund\",\n         \"meta\":{},\n         \"status\":\"paid\",\n         \"created\":\"2015-10-28T22:55:28.000Z\",\n         \"lastUpdated\":\"2015-10-28T22:55:30.000Z\"\n      }\n   ],\n   \"count\":1,\n   \"settings\":{ \n      \"limit\":50,\n      \"offset\":0,\n      \"order\":\"created DESC\"\n   }\n}"
+           }
+          },
+          "schema": {
+           "type": "object",
+           "properties": {
+            "results": {
+             "type": "array",
+             "items": {
+              "type": "object",
+              "properties": {
+               "object": {
+                "type": "string",
+                "example": "refund"
+               },
+               "id": {
+                "type": "string",
+                "example": "r5asl6ygfew3k47ixztdfka1"
+               },
+               "amount": {
+                "type": "string",
+                "example": "20.00"
+               },
+               "currency": {
+                "type": "string",
+                "example": "USD"
+               },
+               "settlementAmount": {
+                "type": "string",
+                "example": "20.00"
+               },
+               "settlementCurrency": {
+                "type": "string",
+                "example": "USD"
+               },
+               "paymentId": {
+                "type": "string",
+                "example": "e26pqmpubmlsmqak7d93vpnc"
+               },
+               "balanceChangeId": {
+                "type": "string",
+                "example": "a16609a00d5943aab4408b9b"
+               },
+               "description": {
+                "type": "string",
+                "example": "A description for the refund"
+               },
+               "meta": {
+                "type": "object",
+                "properties": {}
+               },
+               "status": {
+                "type": "string",
+                "example": "paid"
+               },
+               "created": {
+                "type": "string",
+                "example": "2015-10-28T22:55:28.000Z"
+               },
+               "lastUpdated": {
+                "type": "string",
+                "example": "2015-10-28T22:55:30.000Z"
+               }
+              }
+             }
+            },
+            "count": {
+             "type": "integer",
+             "example": 1,
+             "default": 0
+            },
+            "settings": {
+             "type": "object",
+             "properties": {
+              "limit": {
+               "type": "integer",
+               "example": 50,
+               "default": 0
+              },
+              "offset": {
+               "type": "integer",
+               "example": 0,
+               "default": 0
+              },
+              "order": {
+               "type": "string",
+               "example": "created DESC"
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "deprecated": false
+     }
+    }
+   },
+   "x-readme": {
+    "headers": [],
+    "explorer-enabled": true,
+    "proxy-enabled": true
+   },
+   "x-readme-fauxas": true,
+   "_id": "5e9e175f080ddd0012148b8b:5e90bf59e3354c005a756f8c"
+  }
+ },
+ {
+  "page": "https://developers.paystand.com/reference/list-all-transfers.md",
+  "definition": {
+   "openapi": "3.1.0",
+   "info": {
+    "title": "Sandbox Secure API",
+    "version": "3.2.1"
+   },
+   "servers": [
+    {
+     "url": "https://api.paystand.co/v3"
+    }
+   ],
+   "components": {
+    "securitySchemes": {
+     "sec0": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-CUSTOMER-ID",
+      "x-default": "axjf9rjo9o6ojp5kcya7vle0"
+     },
+     "sec1": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "x-bearer-format": "bearer",
+      "x-default": "zGwAN7EfU9HYsGlcIQGGBKZ75Xug1Zdy"
+     },
+     "sec2": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Accept",
+      "x-default": "application/json"
+     },
+     "sec3": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Content-Type",
+      "x-default": "application/json"
+     }
+    }
+   },
+   "security": [
+    {
+     "sec0": [],
+     "sec1": [],
+     "sec2": [],
+     "sec3": []
+    }
+   ],
+   "paths": {
+    "/transfers/all": {
+     "get": {
+      "summary": "List all transfers",
+      "description": "Returns a list of all transfers you’ve previously created. The transfers are returned in sorted order, with the most recent refunds appearing first. For convenience, pagination is available with the limit and offset parameters.",
+      "operationId": "list-all-transfers",
+      "parameters": [
+       {
+        "name": "startDate",
+        "in": "query",
+        "description": "Filters the list based on the object \"created\" field, will return records whose created date is greater than or equal to the startDate.",
+        "schema": {
+         "type": "string",
+         "format": "date",
+         "default": "2014-01-01"
+        }
+       },
+       {
+        "name": "endDate",
+        "in": "query",
+        "description": "Filters the list based on the object \"created\" field, will return records whose created date is less than or equal to the endDate.",
+        "schema": {
+         "type": "string",
+         "format": "date",
+         "default": "2020-02-02"
+        }
+       },
+       {
+        "name": "format",
+        "in": "query",
+        "description": "Defines how data should be return, accepted values: [\"json\", \"csv\"]",
+        "schema": {
+         "type": "string",
+         "default": "json"
+        }
+       },
+       {
+        "name": "offset",
+        "in": "query",
+        "description": "Use for pagination, how many records should the query skip",
+        "schema": {
+         "type": "integer",
+         "format": "int32",
+         "default": 0
+        }
+       },
+       {
+        "name": "limit",
+        "in": "query",
+        "description": "Defines how many values should it return, accepted value range between 1 and 200",
+        "schema": {
+         "type": "integer",
+         "format": "int32",
+         "default": 50
+        }
+       }
+      ],
+      "responses": {
+       "200": {
+        "description": "200",
+        "content": {
+         "application/json": {
+          "examples": {
+           "Result": {
+            "value": "{ \n   \"results\":[ \n      { \n         \"object\":\"transfer\",\n         \"id\":\"ptpj75e1j0djht9dpax6ospz\",\n         \"amount\":\"20.00\",\n         \"currency\":\"USD\",\n         \"dateToPost\":\"2019-07-10T16:53:20.000Z\",\n         \"holds\":[ \n            { \n               \"object\":\"hold\",\n               \"id\":\"cj43xts2ckzaijsraljejomi\",\n               \"amount\":\"20.00\",\n               \"currency\":\"USD\",\n               \"holdTime\":\"0\",\n               \"releaseDate\":\"2019-07-10T16:53:20.000Z\",\n               \"resourceId\":\"ptpj75e1j0djht9dpax6ospz\",\n               \"resourceType\":\"Transfer\",\n               \"status\":\"active\",\n               \"created\":\"2019-07-10T16:53:20.000Z\",\n               \"lastUpdated\":\"2019-07-10T16:53:21.000Z\"\n            }\n         ],\n         \"bankId\":\"p5cwqjqp6o49q31zr42kjv78\",\n         \"accountKey\":\"default\",\n         \"bank\":{ \n            \"accountType\":\"checking\",\n            \"bankName\":\"PayStand Test Bank\",\n            \"routingNumber\":\"110000000\",\n            \"nameOnAccount\":\"Child1 Customer\",\n            \"accountHolderType\":\"individual\",\n            \"currency\":\"USD\",\n            \"country\":\"USA\",\n            \"last4\":\"6789\",\n            \"fingerprint\":\"4cpw32i0hoz5iyhx7la194cy\",\n            \"isDefault\":false,\n            \"billingAddress\":{ \n               \"street1\":\"payer street\",\n               \"city\":\"payer city\",\n               \"state\":\"CA\",\n               \"postalCode\":\"95060\",\n               \"country\":\"USA\"\n            },\n            \"externalId\":\"bank_001\",\n            \"dropped\":true,\n            \"verified\":true\n         },\n         \"resourceId\":\"9o7f8g00witrma2moebd0aur\",\n         \"resourceType\":\"Withdrawal\",\n         \"status\":\"processing\",\n         \"ownerId\":\"yxfxbcl6jjtjk57zv7t97i01\",\n         \"created\":\"2019-07-10T16:53:20.000Z\",\n         \"lastUpdated\":\"2019-07-10T16:53:20.000Z\"\n      }\n   ],\n   \"count\":1,\n   \"settings\":{ \n      \"limit\":50,\n      \"offset\":0,\n      \"order\":\"created DESC\"\n   }\n}"
+           }
+          },
+          "schema": {
+           "type": "object",
+           "properties": {
+            "results": {
+             "type": "array",
+             "items": {
+              "type": "object",
+              "properties": {
+               "object": {
+                "type": "string",
+                "example": "transfer"
+               },
+               "id": {
+                "type": "string",
+                "example": "ptpj75e1j0djht9dpax6ospz"
+               },
+               "amount": {
+                "type": "string",
+                "example": "20.00"
+               },
+               "currency": {
+                "type": "string",
+                "example": "USD"
+               },
+               "dateToPost": {
+                "type": "string",
+                "example": "2019-07-10T16:53:20.000Z"
+               },
+               "holds": {
+                "type": "array",
+                "items": {
+                 "type": "object",
+                 "properties": {
+                  "object": {
+                   "type": "string",
+                   "example": "hold"
+                  },
+                  "id": {
+                   "type": "string",
+                   "example": "cj43xts2ckzaijsraljejomi"
+                  },
+                  "amount": {
+                   "type": "string",
+                   "example": "20.00"
+                  },
+                  "currency": {
+                   "type": "string",
+                   "example": "USD"
+                  },
+                  "holdTime": {
+                   "type": "string",
+                   "example": "0"
+                  },
+                  "releaseDate": {
+                   "type": "string",
+                   "example": "2019-07-10T16:53:20.000Z"
+                  },
+                  "resourceId": {
+                   "type": "string",
+                   "example": "ptpj75e1j0djht9dpax6ospz"
+                  },
+                  "resourceType": {
+                   "type": "string",
+                   "example": "Transfer"
+                  },
+                  "status": {
+                   "type": "string",
+                   "example": "active"
+                  },
+                  "created": {
+                   "type": "string",
+                   "example": "2019-07-10T16:53:20.000Z"
+                  },
+                  "lastUpdated": {
+                   "type": "string",
+                   "example": "2019-07-10T16:53:21.000Z"
+                  }
+                 }
+                }
+               },
+               "bankId": {
+                "type": "string",
+                "example": "p5cwqjqp6o49q31zr42kjv78"
+               },
+               "accountKey": {
+                "type": "string",
+                "example": "default"
+               },
+               "bank": {
+                "type": "object",
+                "properties": {
+                 "accountType": {
+                  "type": "string",
+                  "example": "checking"
+                 },
+                 "bankName": {
+                  "type": "string",
+                  "example": "PayStand Test Bank"
+                 },
+                 "routingNumber": {
+                  "type": "string",
+                  "example": "110000000"
+                 },
+                 "nameOnAccount": {
+                  "type": "string",
+                  "example": "Child1 Customer"
+                 },
+                 "accountHolderType": {
+                  "type": "string",
+                  "example": "individual"
+                 },
+                 "currency": {
+                  "type": "string",
+                  "example": "USD"
+                 },
+                 "country": {
+                  "type": "string",
+                  "example": "USA"
+                 },
+                 "last4": {
+                  "type": "string",
+                  "example": "6789"
+                 },
+                 "fingerprint": {
+                  "type": "string",
+                  "example": "4cpw32i0hoz5iyhx7la194cy"
+                 },
+                 "isDefault": {
+                  "type": "boolean",
+                  "example": false,
+                  "default": true
+                 },
+                 "billingAddress": {
+                  "type": "object",
+                  "properties": {
+                   "street1": {
+                    "type": "string",
+                    "example": "payer street"
+                   },
+                   "city": {
+                    "type": "string",
+                    "example": "payer city"
+                   },
+                   "state": {
+                    "type": "string",
+                    "example": "CA"
+                   },
+                   "postalCode": {
+                    "type": "string",
+                    "example": "95060"
+                   },
+                   "country": {
+                    "type": "string",
+                    "example": "USA"
+                   }
+                  }
+                 },
+                 "externalId": {
+                  "type": "string",
+                  "example": "bank_001"
+                 },
+                 "dropped": {
+                  "type": "boolean",
+                  "example": true,
+                  "default": true
+                 },
+                 "verified": {
+                  "type": "boolean",
+                  "example": true,
+                  "default": true
+                 }
+                }
+               },
+               "resourceId": {
+                "type": "string",
+                "example": "9o7f8g00witrma2moebd0aur"
+               },
+               "resourceType": {
+                "type": "string",
+                "example": "Withdrawal"
+               },
+               "status": {
+                "type": "string",
+                "example": "processing"
+               },
+               "ownerId": {
+                "type": "string",
+                "example": "yxfxbcl6jjtjk57zv7t97i01"
+               },
+               "created": {
+                "type": "string",
+                "example": "2019-07-10T16:53:20.000Z"
+               },
+               "lastUpdated": {
+                "type": "string",
+                "example": "2019-07-10T16:53:20.000Z"
+               }
+              }
+             }
+            },
+            "count": {
+             "type": "integer",
+             "example": 1,
+             "default": 0
+            },
+            "settings": {
+             "type": "object",
+             "properties": {
+              "limit": {
+               "type": "integer",
+               "example": 50,
+               "default": 0
+              },
+              "offset": {
+               "type": "integer",
+               "example": 0,
+               "default": 0
+              },
+              "order": {
+               "type": "string",
+               "example": "created DESC"
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "deprecated": false
+     }
+    }
+   },
+   "x-readme": {
+    "headers": [],
+    "explorer-enabled": true,
+    "proxy-enabled": true
+   },
+   "x-readme-fauxas": true,
+   "_id": "5e9e175f080ddd0012148b8b:5e90bf59e3354c005a756f8b"
+  }
+ },
+ {
+  "page": "https://developers.paystand.com/reference/create-withdrawal.md",
+  "definition": {
+   "openapi": "3.1.0",
+   "info": {
+    "title": "Sandbox Secure API",
+    "version": "3.2.1"
+   },
+   "servers": [
+    {
+     "url": "https://api.paystand.co/v3"
+    }
+   ],
+   "components": {
+    "securitySchemes": {
+     "sec0": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-CUSTOMER-ID",
+      "x-default": "axjf9rjo9o6ojp5kcya7vle0"
+     },
+     "sec1": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "x-bearer-format": "bearer",
+      "x-default": "zGwAN7EfU9HYsGlcIQGGBKZ75Xug1Zdy"
+     },
+     "sec2": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Accept",
+      "x-default": "application/json"
+     },
+     "sec3": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Content-Type",
+      "x-default": "application/json"
+     }
+    }
+   },
+   "security": [
+    {
+     "sec0": [],
+     "sec1": [],
+     "sec2": [],
+     "sec3": []
+    }
+   ],
+   "paths": {
+    "/withdrawals": {
+     "post": {
+      "summary": "Create a withdrawal",
+      "description": "Create a withdrawal to send funds from a Paystand account to an external bank account. Provide an amount, currency, and bankId to create a withdrawal. Optionally provide a short description and meta to help describe and link the withdrawal to an external system. Specify an \"accountKey\" to use a specific paystand account as a source of funds for the withdrawal. The \"default\" paystand account for the customer will be used if no \"accountKey\" is specified in the request.\n\nThe withdrawal amount may not exceed the current available balance. The current available balance is determined by summing all payments with status \"paid\" and subtracting any refunds, disputes, holds, fees, and/or withdrawals. Withdrawals will usually appear in the bank account within two business days of the withdrawal being submitted.",
+      "operationId": "create-withdrawal",
+      "requestBody": {
+       "content": {
+        "application/json": {
+         "schema": {
+          "type": "object",
+          "properties": {
+           "amount": {
+            "type": "string",
+            "description": "The amount of the withdrawal",
+            "default": "5.10"
+           },
+           "currency": {
+            "type": "string",
+            "description": "The currency for the withdrawal",
+            "default": "USD"
+           },
+           "bankId": {
+            "type": "string",
+            "description": "The id of the bank to send funds to.",
+            "default": "oixj37gx9bjbn3f13rt6dou4"
+           },
+           "accountKey": {
+            "type": "string",
+            "description": "The key of the account to be used as a source of funds"
+           },
+           "meta": {
+            "type": "string",
+            "description": "Optional key/values to help link the withdrawal to an external system.",
+            "default": "{}",
+            "format": "json"
+           },
+           "description": {
+            "type": "string",
+            "description": "An optional description of the withdrawal."
+           }
+          }
+         }
+        }
+       }
+      },
+      "responses": {
+       "200": {
+        "description": "200",
+        "content": {
+         "application/json": {
+          "examples": {
+           "Result": {
+            "value": "{\n\t\"id\":\"x9jqrxtekqgdgtuikt5bn3lk\",\n  \"object\":\"withdrawal\",\n  \"amount\":\"5.10\",\n  \"currency\":\"USD\",\n  \"bankId\":\"oixj37gx9bjbn3f13rt6dou4\",\n  \"meta\" :{},\n  \"status\":\"posted\",\n  \"created\":\"2015-10-28T22:57:00.000Z\",\n  \"lastUpdated\":\"2015-10-28T22:57:03.000Z\"\n}"
+           }
+          },
+          "schema": {
+           "type": "object",
+           "properties": {
+            "id": {
+             "type": "string",
+             "example": "x9jqrxtekqgdgtuikt5bn3lk"
+            },
+            "object": {
+             "type": "string",
+             "example": "withdrawal"
+            },
+            "amount": {
+             "type": "string",
+             "example": "5.10"
+            },
+            "currency": {
+             "type": "string",
+             "example": "USD"
+            },
+            "bankId": {
+             "type": "string",
+             "example": "oixj37gx9bjbn3f13rt6dou4"
+            },
+            "meta": {
+             "type": "object",
+             "properties": {}
+            },
+            "status": {
+             "type": "string",
+             "example": "posted"
+            },
+            "created": {
+             "type": "string",
+             "example": "2015-10-28T22:57:00.000Z"
+            },
+            "lastUpdated": {
+             "type": "string",
+             "example": "2015-10-28T22:57:03.000Z"
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "deprecated": false
+     }
+    }
+   },
+   "x-readme": {
+    "headers": [],
+    "explorer-enabled": true,
+    "proxy-enabled": true
+   },
+   "x-readme-fauxas": true,
+   "_id": "5e9e175f080ddd0012148b8b:5e90bf59e3354c005a756df4"
+  }
+ },
+ {
+  "page": "https://developers.paystand.com/reference/list-all-withdrawals.md",
+  "definition": {
+   "openapi": "3.1.0",
+   "info": {
+    "title": "Sandbox Secure API",
+    "version": "3.2.1"
+   },
+   "servers": [
+    {
+     "url": "https://api.paystand.co/v3"
+    }
+   ],
+   "components": {
+    "securitySchemes": {
+     "sec0": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-CUSTOMER-ID",
+      "x-default": "axjf9rjo9o6ojp5kcya7vle0"
+     },
+     "sec1": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "x-bearer-format": "bearer",
+      "x-default": "zGwAN7EfU9HYsGlcIQGGBKZ75Xug1Zdy"
+     },
+     "sec2": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Accept",
+      "x-default": "application/json"
+     },
+     "sec3": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Content-Type",
+      "x-default": "application/json"
+     }
+    }
+   },
+   "security": [
+    {
+     "sec0": [],
+     "sec1": [],
+     "sec2": [],
+     "sec3": []
+    }
+   ],
+   "paths": {
+    "/withdrawals/all": {
+     "get": {
+      "summary": "List all withdrawals",
+      "description": "Returns a list of all withdrawals you’ve previously created. The withdrawals are returned in sorted order, with the most recent refunds appearing first. For convenience, pagination is available with the limit and offset parameters.",
+      "operationId": "list-all-withdrawals",
+      "parameters": [
+       {
+        "name": "startDate",
+        "in": "query",
+        "description": "Date string that detonates records greater than or equal to the created date",
+        "schema": {
+         "type": "string",
+         "format": "date",
+         "default": "2014-01-01"
+        }
+       },
+       {
+        "name": "endDate",
+        "in": "query",
+        "description": "Date string that detonates records less than or equal to the created date",
+        "schema": {
+         "type": "string",
+         "format": "date",
+         "default": "2020-02-02"
+        }
+       },
+       {
+        "name": "format",
+        "in": "query",
+        "description": "Defines how data should be return, accepted values: [\"json\", \"csv\"]",
+        "schema": {
+         "type": "string",
+         "default": "json"
+        }
+       },
+       {
+        "name": "offset",
+        "in": "query",
+        "description": "Use for pagination, how many records should the query skip",
+        "schema": {
+         "type": "integer",
+         "format": "int32",
+         "default": 0
+        }
+       },
+       {
+        "name": "limit",
+        "in": "query",
+        "description": "Defines how many values should it return, accepted value range between 1 and 200",
+        "schema": {
+         "type": "integer",
+         "format": "int32",
+         "default": 50
+        }
+       }
+      ],
+      "responses": {
+       "200": {
+        "description": "200",
+        "content": {
+         "application/json": {
+          "examples": {
+           "Result": {
+            "value": "{\n  \"results\": [\n    {\n      \"id\": \"x9jqrxtekqgdgtuikt5bn3lk\",\n      \"object\": \"withdrawal\",\n      \"amount\": \"5.10\",\n      \"currency\": \"USD\",\n      \"bankId\": \"oixj37gx9bjbn3f13rt6dou4\",\n      \"meta\": {\n      },\n      \"status\": \"posted\",\n      \"created\": \"2015-10-28T22:57:00.000Z\",\n      \"lastUpdated\": \"2015-10-28T22:57:03.000Z\"\n    }\n  ],\n  \"count\": 1,\n  \"settings\": {\n    \"limit\": 50,\n    \"offset\": 0,\n    \"order\": \"created DESC\"\n  }\n}"
+           }
+          },
+          "schema": {
+           "type": "object",
+           "properties": {
+            "results": {
+             "type": "array",
+             "items": {
+              "type": "object",
+              "properties": {
+               "id": {
+                "type": "string",
+                "example": "x9jqrxtekqgdgtuikt5bn3lk"
+               },
+               "object": {
+                "type": "string",
+                "example": "withdrawal"
+               },
+               "amount": {
+                "type": "string",
+                "example": "5.10"
+               },
+               "currency": {
+                "type": "string",
+                "example": "USD"
+               },
+               "bankId": {
+                "type": "string",
+                "example": "oixj37gx9bjbn3f13rt6dou4"
+               },
+               "meta": {
+                "type": "object",
+                "properties": {}
+               },
+               "status": {
+                "type": "string",
+                "example": "posted"
+               },
+               "created": {
+                "type": "string",
+                "example": "2015-10-28T22:57:00.000Z"
+               },
+               "lastUpdated": {
+                "type": "string",
+                "example": "2015-10-28T22:57:03.000Z"
+               }
+              }
+             }
+            },
+            "count": {
+             "type": "integer",
+             "example": 1,
+             "default": 0
+            },
+            "settings": {
+             "type": "object",
+             "properties": {
+              "limit": {
+               "type": "integer",
+               "example": 50,
+               "default": 0
+              },
+              "offset": {
+               "type": "integer",
+               "example": 0,
+               "default": 0
+              },
+              "order": {
+               "type": "string",
+               "example": "created DESC"
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "deprecated": false
+     }
+    }
+   },
+   "x-readme": {
+    "headers": [],
+    "explorer-enabled": true,
+    "proxy-enabled": true
+   },
+   "x-readme-fauxas": true,
+   "_id": "5e9e175f080ddd0012148b8b:5e90bf59e3354c005a756f8e"
+  }
+ },
+ {
+  "page": "https://developers.paystand.com/reference/update-an-auto-withdrawal-settings.md",
+  "definition": {
+   "openapi": "3.1.0",
+   "info": {
+    "title": "Sandbox Secure API",
+    "version": "3.2.1"
+   },
+   "servers": [
+    {
+     "url": "https://api.paystand.co/v3"
+    }
+   ],
+   "components": {
+    "securitySchemes": {
+     "sec0": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-CUSTOMER-ID",
+      "x-default": "axjf9rjo9o6ojp5kcya7vle0"
+     },
+     "sec1": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "x-bearer-format": "bearer",
+      "x-default": "zGwAN7EfU9HYsGlcIQGGBKZ75Xug1Zdy"
+     },
+     "sec2": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Accept",
+      "x-default": "application/json"
+     },
+     "sec3": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Content-Type",
+      "x-default": "application/json"
+     }
+    }
+   },
+   "security": [
+    {
+     "sec0": [],
+     "sec1": [],
+     "sec2": [],
+     "sec3": []
+    }
+   ],
+   "paths": {
+    "/withdrawals/settings": {
+     "put": {
+      "summary": "Manage settings",
+      "description": "Withdrawals can be scheduled to automatically be sent daily or weekly.  You can configure auto-withdrawals for a customer by managing their withdrawal settings. When the schedule runs, all available funds will attempt to be withdrawn. One withdrawal will be created for each account. Each account can be configured to have their funds sent to a different bank account.\n\nThe order of accounts listed in \"active\" is very important. When the auto-withdrawal schedule runs, withdrawals will attempt to draw from the accounts in the order given. However, if any accounts carry a negative balance, it will impact the maximum amount that can be withdrawn from any accounts with a positive balance. As a result, if there are active accounts with a negative balance, active accounts with a positive balance may not be able to withdraw all of their funds. The \"active\" list acts as a priority list of which accounts should take precedence over others.",
+      "operationId": "update-an-auto-withdrawal-settings",
+      "requestBody": {
+       "content": {
+        "application/json": {
+         "schema": {
+          "type": "object",
+          "properties": {
+           "auto": {
+            "type": "object",
+            "description": "The settings for managing automated withdrawals.",
+            "properties": {}
+           }
+          }
+         }
+        }
+       }
+      },
+      "responses": {
+       "200": {
+        "description": "200",
+        "content": {
+         "application/json": {
+          "examples": {
+           "Result": {
+            "value": "{\n  \"auto\": {\n    \"frequency\": \"daily\",\n    \"active\": [\"default\", \"california_funds\"],\n    \"accounts\": {\n      \"default\": {\n        \"bankId\": \"8bce66a6217146048061b67c\"\n      },\n      \"california_funds\": {\n        \"bankId\": \"bfccfdffe5444323b9d43a25\"\n      }\n    }\n  }\n}"
+           }
+          },
+          "schema": {
+           "type": "object",
+           "properties": {
+            "auto": {
+             "type": "object",
+             "properties": {
+              "frequency": {
+               "type": "string",
+               "example": "daily"
+              },
+              "active": {
+               "type": "array",
+               "items": {
+                "type": "string",
+                "example": "default"
+               }
+              },
+              "accounts": {
+               "type": "object",
+               "properties": {
+                "default": {
+                 "type": "object",
+                 "properties": {
+                  "bankId": {
+                   "type": "string",
+                   "example": "8bce66a6217146048061b67c"
+                  }
+                 }
+                },
+                "california_funds": {
+                 "type": "object",
+                 "properties": {
+                  "bankId": {
+                   "type": "string",
+                   "example": "bfccfdffe5444323b9d43a25"
+                  }
+                 }
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "deprecated": false
+     }
+    }
+   },
+   "x-readme": {
+    "headers": [],
+    "explorer-enabled": true,
+    "proxy-enabled": true
+   },
+   "x-readme-fauxas": true,
+   "_id": "5e9e175f080ddd0012148b8b:5e90bf59e3354c005a756e3d"
+  }
+ }
+]

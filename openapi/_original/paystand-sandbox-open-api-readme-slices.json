@@ -1,0 +1,101 @@
+[
+ {
+  "page": "https://developers.paystand.com/reference/create-an-access-token.md",
+  "definition": {
+   "openapi": "3.1.0",
+   "info": {
+    "title": "Sandbox Open API",
+    "version": "3.2.1"
+   },
+   "servers": [
+    {
+     "url": "https://api.paystand.co/v3"
+    }
+   ],
+   "security": [
+    {}
+   ],
+   "paths": {
+    "/oauth/token": {
+     "post": {
+      "summary": "Create an access token",
+      "description": "",
+      "operationId": "create-an-access-token",
+      "requestBody": {
+       "content": {
+        "application/json": {
+         "schema": {
+          "type": "object",
+          "properties": {
+           "RAW_BODY": {
+            "type": "object",
+            "properties": {}
+           }
+          }
+         }
+        }
+       }
+      },
+      "responses": {
+       "200": {
+        "description": "200",
+        "content": {
+         "application/json": {
+          "examples": {
+           "Result": {
+            "value": "{\n  \"access_token\": \"d861a41675f645a2b9bcd27\",\n  \"expires_in\": 1209600,\n  \"scope\": \"auth\",\n  \"refresh_token\": \"f20c7998e3684b8a80e77fba\",\n  \"token_type\": \"Bearer\"\n}"
+           }
+          },
+          "schema": {
+           "type": "object",
+           "properties": {
+            "access_token": {
+             "type": "string",
+             "example": "d861a41675f645a2b9bcd27"
+            },
+            "expires_in": {
+             "type": "integer",
+             "example": 1209600,
+             "default": 0
+            },
+            "scope": {
+             "type": "string",
+             "example": "auth"
+            },
+            "refresh_token": {
+             "type": "string",
+             "example": "f20c7998e3684b8a80e77fba"
+            },
+            "token_type": {
+             "type": "string",
+             "example": "Bearer"
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "deprecated": false
+     }
+    }
+   },
+   "x-readme": {
+    "headers": [
+     {
+      "key": "Content-Type",
+      "value": "application/json"
+     },
+     {
+      "key": "Accept",
+      "value": "application/json"
+     }
+    ],
+    "explorer-enabled": true,
+    "proxy-enabled": true
+   },
+   "x-readme-fauxas": true,
+   "_id": "5f0610582943d9043595dc46:5f04b6f08f6ed502897d77d0"
+  }
+ }
+]

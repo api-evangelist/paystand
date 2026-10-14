@@ -1,0 +1,110 @@
+generated: '2026-10-14'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 9
+  own: 7
+  other_domain: 1
+  platform: 1
+  roles:
+  - api
+  - identity
+  - legal
+  - other
+  - portal
+  - source
+  - status
+  - support
+  - website
+hosts:
+- host: api.paystand.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: paystand.com
+  role: api
+  relation: own
+- host: dashboard.paystand.com
+  found_by:
+  - pointer
+  types:
+  - SignUp
+  serves: []
+  registrable_domain: paystand.com
+  role: identity
+  relation: own
+- host: developers.paystand.com
+  found_by:
+  - pointer
+  - apis[]
+  types:
+  - DeveloperPortal
+  - Documentation
+  - APIReference
+  - GettingStarted
+  serves:
+  - docs
+  registrable_domain: paystand.com
+  role: portal
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: privacy.cptn.co
+  found_by:
+  - pointer
+  types:
+  - PrivacyPolicy
+  serves: []
+  registrable_domain: cptn.co
+  role: legal
+  relation: other-domain
+- host: status.paystand.com
+  found_by:
+  - pointer
+  types:
+  - StatusPage
+  serves: []
+  registrable_domain: paystand.com
+  role: status
+  relation: own
+- host: support.paystand.com
+  found_by:
+  - pointer
+  types:
+  - Support
+  serves: []
+  registrable_domain: paystand.com
+  role: support
+  relation: own
+- host: trust.paystand.com
+  found_by:
+  - pointer
+  types:
+  - TrustCenter
+  serves: []
+  registrable_domain: paystand.com
+  role: other
+  relation: own
+- host: www.paystand.com
+  found_by:
+  - pointer
+  types:
+  - BlogRSS
+  - Website
+  - Blog
+  - Pricing
+  - TermsOfService
+  serves: []
+  registrable_domain: paystand.com
+  role: website
+  relation: own

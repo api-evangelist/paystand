@@ -1,0 +1,53 @@
+{
+  "provider": "paystand",
+  "sources": [
+    "paystand-sandbox-open-api-openapi.yml",
+    "paystand-sandbox-secure-api-openapi.yml"
+  ],
+  "outputs": [
+    "paystand-oauth-api-openapi.yml",
+    "paystand-balances-api-openapi.yml",
+    "paystand-banks-api-openapi.yml",
+    "paystand-payers-api-openapi.yml",
+    "paystand-payments-api-openapi.yml",
+    "paystand-refunds-api-openapi.yml",
+    "paystand-transfers-api-openapi.yml",
+    "paystand-withdrawals-api-openapi.yml"
+  ],
+  "archived": [
+    "deleted 2 superseded output(s) from the previous generation"
+  ],
+  "errors": [],
+  "warnings": [
+    "paystand-sandbox-open-api-openapi.yml: previously refined output kept for 1 operation(s) no archived document covers (e.g. /oauth/token post); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "paystand-sandbox-secure-api-openapi.yml: previously refined output kept for 11 operation(s) no archived document covers (e.g. /balances/accounts post, /balances/summary get, /banks post); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
+  ],
+  "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "paystand-sandbox-open-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "paystand-sandbox-open-api-openapi.yml: tagged paths POST /oauth/token -> Oauth",
+    "paystand-sandbox-open-api-openapi.yml: declared missing tag: Oauth",
+    "paystand-sandbox-secure-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "paystand-sandbox-secure-api-openapi.yml: tagged paths POST /balances/accounts -> Balances",
+    "paystand-sandbox-secure-api-openapi.yml: tagged paths GET /balances/summary -> Balances",
+    "paystand-sandbox-secure-api-openapi.yml: tagged paths POST /banks -> Banks",
+    "paystand-sandbox-secure-api-openapi.yml: tagged paths POST /payers -> Payers",
+    "paystand-sandbox-secure-api-openapi.yml: tagged paths GET /payments/all -> Payments",
+    "paystand-sandbox-secure-api-openapi.yml: tagged paths POST /payments/secure -> Payments",
+    "paystand-sandbox-secure-api-openapi.yml: tagged paths GET /refunds/all -> Refunds",
+    "paystand-sandbox-secure-api-openapi.yml: tagged paths GET /transfers/all -> Transfers",
+    "paystand-sandbox-secure-api-openapi.yml: tagged paths POST /withdrawals -> Withdrawals",
+    "paystand-sandbox-secure-api-openapi.yml: tagged paths GET /withdrawals/all -> Withdrawals",
+    "paystand-sandbox-secure-api-openapi.yml: tagged paths PUT /withdrawals/settings -> Withdrawals",
+    "paystand-sandbox-secure-api-openapi.yml: declared missing tag: Balances",
+    "paystand-sandbox-secure-api-openapi.yml: declared missing tag: Banks",
+    "paystand-sandbox-secure-api-openapi.yml: declared missing tag: Payers",
+    "paystand-sandbox-secure-api-openapi.yml: declared missing tag: Payments",
+    "paystand-sandbox-secure-api-openapi.yml: declared missing tag: Refunds",
+    "paystand-sandbox-secure-api-openapi.yml: declared missing tag: Transfers",
+    "paystand-sandbox-secure-api-openapi.yml: declared missing tag: Withdrawals",
+    "superseded outputs removed: paystand-sandbox-open-api-openapi.yml, paystand-sandbox-secure-api-openapi.yml",
+    "apis.yml register: written (+8 apis, 9 total)"
+  ],
+  "skipped": []
+}

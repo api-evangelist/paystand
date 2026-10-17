@@ -1,0 +1,277 @@
+openapi: 3.2.0
+info:
+  title: Sandbox Secure Transfers API
+  version: 3.2.1
+servers:
+- url: https://api.paystand.co/v3
+security:
+- sec0: []
+  sec1: []
+  sec2: []
+  sec3: []
+tags:
+- name: Transfers
+paths:
+  /transfers/all:
+    get:
+      summary: List all transfers
+      description: Returns a list of all transfers you’ve previously created. The transfers are returned in sorted order, with the most recent refunds appearing first. For convenience, pagination is available with the limit and offset parameters.
+      operationId: list-all-transfers
+      parameters:
+      - name: startDate
+        in: query
+        description: Filters the list based on the object "created" field, will return records whose created date is greater than or equal to the startDate.
+        schema:
+          type: string
+          format: date
+          default: '2014-01-01'
+      - name: endDate
+        in: query
+        description: Filters the list based on the object "created" field, will return records whose created date is less than or equal to the endDate.
+        schema:
+          type: string
+          format: date
+          default: '2020-02-02'
+      - name: format
+        in: query
+        description: 'Defines how data should be return, accepted values: ["json", "csv"]'
+        schema:
+          type: string
+          default: json
+      - name: offset
+        in: query
+        description: Use for pagination, how many records should the query skip
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        description: Defines how many values should it return, accepted value range between 1 and 200
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{ \n   \"results\":[ \n      { \n         \"object\":\"transfer\",\n         \"id\":\"ptpj75e1j0djht9dpax6ospz\",\n         \"amount\":\"20.00\",\n         \"currency\":\"USD\",\n         \"dateToPost\":\"2019-07-10T16:53:20.000Z\",\n         \"holds\":[ \n            { \n               \"object\":\"hold\",\n               \"id\":\"cj43xts2ckzaijsraljejomi\",\n               \"amount\":\"20.00\",\n               \"currency\":\"USD\",\n               \"holdTime\":\"0\",\n               \"releaseDate\":\"2019-07-10T16:53:20.000Z\",\n               \"resourceId\":\"ptpj75e1j0djht9dpax6ospz\",\n               \"resourceType\":\"Transfer\",\n               \"status\":\"active\",\n               \"created\":\"2019-07-10T16:53:20.000Z\",\n               \"lastUpdated\":\"2019-07-10T16:53:21.000Z\"\n            }\n         ],\n         \"bankId\":\"p5cwqjqp6o49q31zr42kjv78\",\n         \"accountKey\":\"default\",\n         \"bank\":{ \n            \"accountType\":\"checking\",\n            \"bankName\":\"PayStand Test Bank\",\n            \"routingNumber\":\"110000000\",\n            \"nameOnAccount\":\"Child1 Customer\",\n            \"accountHolderType\":\"individual\",\n            \"currency\":\"USD\",\n            \"country\":\"USA\",\n            \"last4\":\"6789\",\n            \"fingerprint\":\"4cpw32i0hoz5iyhx7la194cy\",\n            \"isDefault\":false,\n            \"billingAddress\":{ \n               \"street1\":\"payer street\",\n               \"city\":\"payer city\",\n               \"state\":\"CA\",\n               \"postalCode\":\"95060\",\n               \"country\":\"USA\"\n            },\n            \"externalId\":\"bank_001\",\n            \"dropped\":true,\n            \"verified\":true\n         },\n         \"resourceId\":\"9o7f8g00witrma2moebd0aur\",\n         \"resourceType\":\"Withdrawal\",\n         \"status\":\"processing\",\n         \"ownerId\":\"yxfxbcl6jjtjk57zv7t97i01\",\n         \"created\":\"2019-07-10T16:53:20.000Z\",\n         \"lastUpdated\":\"2019-07-10T16:53:20.000Z\"\n      }\n   ],\n   \"count\":1,\n   \"settings\":{ \n      \"limit\":50,\n      \"offset\":0,\n      \"order\":\"created DESC\"\n   }\n}"
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        object:
+                          type: string
+                          example: transfer
+                        id:
+                          type: string
+                          example: ptpj75e1j0djht9dpax6ospz
+                        amount:
+                          type: string
+                          example: '20.00'
+                        currency:
+                          type: string
+                          example: USD
+                        dateToPost:
+                          type: string
+                          example: '2019-07-10T16:53:20.000Z'
+                        holds:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              object:
+                                type: string
+                                example: hold
+                              id:
+                                type: string
+                                example: cj43xts2ckzaijsraljejomi
+                              amount:
+                                type: string
+                                example: '20.00'
+                              currency:
+                                type: string
+                                example: USD
+                              holdTime:
+                                type: string
+                                example: '0'
+                              releaseDate:
+                                type: string
+                                example: '2019-07-10T16:53:20.000Z'
+                              resourceId:
+                                type: string
+                                example: ptpj75e1j0djht9dpax6ospz
+                              resourceType:
+                                type: string
+                                example: Transfer
+                              status:
+                                type: string
+                                example: active
+                              created:
+                                type: string
+                                example: '2019-07-10T16:53:20.000Z'
+                              lastUpdated:
+                                type: string
+                                example: '2019-07-10T16:53:21.000Z'
+                        bankId:
+                          type: string
+                          example: p5cwqjqp6o49q31zr42kjv78
+                        accountKey:
+                          type: string
+                          example: default
+                        bank:
+                          type: object
+                          properties:
+                            accountType:
+                              type: string
+                              example: checking
+                            bankName:
+                              type: string
+                              example: PayStand Test Bank
+                            routingNumber:
+                              type: string
+                              example: '110000000'
+                            nameOnAccount:
+                              type: string
+                              example: Child1 Customer
+                            accountHolderType:
+                              type: string
+                              example: individual
+                            currency:
+                              type: string
+                              example: USD
+                            country:
+                              type: string
+                              example: USA
+                            last4:
+                              type: string
+                              example: '6789'
+                            fingerprint:
+                              type: string
+                              example: 4cpw32i0hoz5iyhx7la194cy
+                            isDefault:
+                              type: boolean
+                              example: false
+                              default: true
+                            billingAddress:
+                              type: object
+                              properties:
+                                street1:
+                                  type: string
+                                  example: payer street
+                                city:
+                                  type: string
+                                  example: payer city
+                                state:
+                                  type: string
+                                  example: CA
+                                postalCode:
+                                  type: string
+                                  example: '95060'
+                                country:
+                                  type: string
+                                  example: USA
+                            externalId:
+                              type: string
+                              example: bank_001
+                            dropped:
+                              type: boolean
+                              example: true
+                              default: true
+                            verified:
+                              type: boolean
+                              example: true
+                              default: true
+                        resourceId:
+                          type: string
+                          example: 9o7f8g00witrma2moebd0aur
+                        resourceType:
+                          type: string
+                          example: Withdrawal
+                        status:
+                          type: string
+                          example: processing
+                        ownerId:
+                          type: string
+                          example: yxfxbcl6jjtjk57zv7t97i01
+                        created:
+                          type: string
+                          example: '2019-07-10T16:53:20.000Z'
+                        lastUpdated:
+                          type: string
+                          example: '2019-07-10T16:53:20.000Z'
+                  count:
+                    type: integer
+                    example: 1
+                    default: 0
+                  settings:
+                    type: object
+                    properties:
+                      limit:
+                        type: integer
+                        example: 50
+                        default: 0
+                      offset:
+                        type: integer
+                        example: 0
+                        default: 0
+                      order:
+                        type: string
+                        example: created DESC
+      deprecated: false
+      tags:
+      - Transfers
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: X-CUSTOMER-ID
+      x-default: axjf9rjo9o6ojp5kcya7vle0
+    sec1:
+      type: apiKey
+      in: header
+      name: Authorization
+      x-bearer-format: bearer
+      x-default: zGwAN7EfU9HYsGlcIQGGBKZ75Xug1Zdy
+    sec2:
+      type: apiKey
+      in: header
+      name: Accept
+      x-default: application/json
+    sec3:
+      type: apiKey
+      in: header
+      name: Content-Type
+      x-default: application/json
+x-readme-fauxas: true
+x-provenance:
+  method: searched
+  source: https://developers.paystand.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://developers.paystand.com/reference/balance-summary.md
+  - https://developers.paystand.com/reference/create-a-payer.md
+  - https://developers.paystand.com/reference/create-an-account.md
+  - https://developers.paystand.com/reference/create-bank.md
+  - https://developers.paystand.com/reference/create-payment.md
+  - https://developers.paystand.com/reference/create-withdrawal.md
+  - https://developers.paystand.com/reference/get-all-payments.md
+  - https://developers.paystand.com/reference/list-all-refunds.md
+  - https://developers.paystand.com/reference/list-all-transfers.md
+  - https://developers.paystand.com/reference/list-all-withdrawals.md
+  - https://developers.paystand.com/reference/update-an-auto-withdrawal-settings.md
+  merge:
+    pages: 11
+    deduped: 40
+    conflicts_kept_first: 0

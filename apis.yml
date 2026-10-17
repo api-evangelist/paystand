@@ -137,8 +137,10 @@ common:
 
 apis:
 - name: Paystand Developer API
-  description: 'Paystand v3 REST API for B2B payments: create and manage payments, refunds, disputes, payers, customer banks, accounts, balances,
-    scheduled payments, transfers and withdrawals, plus the Assurety blockchain notarization surface and Checkout / Billing Portal embed.'
+  description: >-
+    Paystand v3 REST API for B2B payments: create and manage payments, refunds, disputes, payers, customer
+    banks, accounts, balances, scheduled payments, transfers and withdrawals, plus the Assurety blockchain
+    notarization surface and Checkout / Billing Portal embed.
   humanURL: https://developers.paystand.com/reference
   baseURL: https://api.paystand.com/v3
   tags:
@@ -163,35 +165,96 @@ apis:
     url: sandbox/paystand-sandbox.yml
   - type: X-MCPServerCandidate
     url: mcp/paystand-mcp.yml
-    note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published
-      API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting
-      the artifact-type surfaces with a server that does not exist.'
+    note: >-
+      Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
+      — a tool list derived from the published API contracts, not an existing server. The scorer already
+      read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
+      surfaces with a server that does not exist.
   - type: Lifecycle
     url: lifecycle/paystand-lifecycle.yml
   - type: Conformance
     url: conformance/paystand-conformance.yml
   aid: paystand:paystand-developer-api
-- aid: paystand:paystand-sandbox-open-api
-  name: PayStand Sandbox Open API
-  description: The Sandbox Open API from PayStand — 1 operation(s) for sandbox open.
+- aid: paystand:paystand-balances-api
+  name: PayStand Balances API
+  description: The Balances API from PayStand — 2 operation(s) for balances.
   humanURL: https://developers.paystand.com/reference
   baseURL: https://api.paystand.com/v3
   tags:
-  - Sandbox Open
+  - Balances
   properties:
   - type: OpenAPI
-    url: openapi/paystand-sandbox-open-api-openapi.yml
-- aid: paystand:paystand-sandbox-secure-api
-  name: PayStand Sandbox Secure API
-  description: The Sandbox Secure API from PayStand — 11 operation(s) for sandbox secure.
+    url: openapi/paystand-balances-api-openapi.yml
+- aid: paystand:paystand-banks-api
+  name: PayStand Banks API
+  description: The Banks API from PayStand — 1 operation(s) for banks.
   humanURL: https://developers.paystand.com/reference
   baseURL: https://api.paystand.com/v3
   tags:
-  - Sandbox Secure
+  - Banks
   properties:
   - type: OpenAPI
-    url: openapi/paystand-sandbox-secure-api-openapi.yml
-
+    url: openapi/paystand-banks-api-openapi.yml
+- aid: paystand:paystand-oauth-api
+  name: PayStand OAuth API
+  description: The Oauth API from PayStand — 1 operation(s) for oauth.
+  humanURL: https://developers.paystand.com/reference
+  baseURL: https://api.paystand.com/v3
+  tags:
+  - Oauth
+  properties:
+  - type: OpenAPI
+    url: openapi/paystand-oauth-api-openapi.yml
+- aid: paystand:paystand-payers-api
+  name: PayStand Payers API
+  description: The Payers API from PayStand — 1 operation(s) for payers.
+  humanURL: https://developers.paystand.com/reference
+  baseURL: https://api.paystand.com/v3
+  tags:
+  - Payers
+  properties:
+  - type: OpenAPI
+    url: openapi/paystand-payers-api-openapi.yml
+- aid: paystand:paystand-payments-api
+  name: PayStand Payments API
+  description: The Payments API from PayStand — 2 operation(s) for payments.
+  humanURL: https://developers.paystand.com/reference
+  baseURL: https://api.paystand.com/v3
+  tags:
+  - Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/paystand-payments-api-openapi.yml
+- aid: paystand:paystand-refunds-api
+  name: PayStand Refunds API
+  description: The Refunds API from PayStand — 1 operation(s) for refunds.
+  humanURL: https://developers.paystand.com/reference
+  baseURL: https://api.paystand.com/v3
+  tags:
+  - Refunds
+  properties:
+  - type: OpenAPI
+    url: openapi/paystand-refunds-api-openapi.yml
+- aid: paystand:paystand-transfers-api
+  name: PayStand Transfers API
+  description: The Transfers API from PayStand — 1 operation(s) for transfers.
+  humanURL: https://developers.paystand.com/reference
+  baseURL: https://api.paystand.com/v3
+  tags:
+  - Transfers
+  properties:
+  - type: OpenAPI
+    url: openapi/paystand-transfers-api-openapi.yml
+- aid: paystand:paystand-withdrawals-api
+  name: PayStand Withdrawals API
+  description: The Withdrawals API from PayStand — 3 operation(s) for withdrawals.
+  humanURL: https://developers.paystand.com/reference
+  baseURL: https://api.paystand.com/v3
+  tags:
+  - Withdrawals
+  properties:
+  - type: OpenAPI
+    url: openapi/paystand-withdrawals-api-openapi.yml
 x-readme-harvest:
   date: '2026-10-14'
   ops: 12

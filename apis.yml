@@ -201,6 +201,8 @@ apis:
   humanURL: https://developers.paystand.com/reference
   baseURL: https://api.paystand.com/v3
   tags:
+  - Authentication
+  tags_raw:
   - Oauth
   properties:
   - type: OpenAPI
